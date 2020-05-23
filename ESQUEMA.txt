@@ -1,0 +1,38 @@
+iniciarSesion.html -->inicioSesionU.js --> usuario.php -->indexUP.css
+
+iniciarSesion2.html -->inicioSesionP.js --> iniciarSesionProtectora.php -- > indexUP.css
+
+index.html --> index.js --> nombreUsuarioPag2.php/datosPag2.php/eliminarUsuario.php --> index.css
+
+indexProtectora.html -->indexProtectora.js -->datosIdentProtectora.php/datosPag2.php/eliminarProtectora.php -->index.css
+
+informacion.html --> infoUsu.js -->nombreUsuarioPag2.php/eliminarUsuario.php --> info.css
+
+informacion2.html -->informacion2.js -->datosIdentProtectora.php/eliminarProtectora.php -->info.css
+
+animales.html -->animales.js/infoUsu.js -->listado1.php/listado2.php/listado3.php/pasoDatosPag4.php/eliminarUsuario.php -->animales.css
+
+animalesProtectora.html-->listaAnimalesProtectora.js-->datosIdentProtectora.php/animalesProtectora.php/pasoDatos8_1.php/IDAnimal.php/eliminarAnimal.php/eliminarProtectora.php-->proteAnim.css
+
+protectoras.html -->protectora.js/infoUsu.js -->listadoProtectoras.php/pasoDatosPag5.php/eliminarUsuario.php -->proteAnim.css
+
+protectorasTotal.html -->protectorasTotal.js -->pasosIdentProtectoras.php/protectorasTotal.php/eliminarProtectora.php -->proteAnim.css
+
+servADomicilio.html -->domicilio.js/infoUsu.js -->pagina6.php/eliminados.php/eliminarUsuario.php -->domicilio.css
+
+pagTrasAdoptar-->adoptar.js/infoUsu.js-->nombreUsuarioPag2.php/eliminarUsuario.php-->adoptar.css
+
+animalesFavoritos.html -->animalesFavoritos.js-->datosIdentProtectora.php/animalesFavoritos.php/pasoDNI.php/eliminarProtectora.php -->proteAnim.css
+
+contacto.html -->infoUsu.js -->nombreUsuarioPag2.php/eliminarUsuario.php-->contacto.css
+
+contacto2.html -->informacion2.js -->datosIdentProtectora.php/eliminarProtectora.php-->contacto.css
+
+listadoAnimales.html-->listaA.js/infoUsu.js-->listaAnimales.php/pasoDatosPag8_1.php/seleccionados.php/eliminados.php/eliminarUsuario.php-->proteAnim.css
+
+fichaParaUsuario.html-->fichaParaUsuario.js-->fichaParaUsuario.php-->ficha.css
+
+fichaAnimal.html-->fichaA.js-->fichaAnimal.php/seleccionados.php/eliminados.php-->ficha.css
+
+fichaProtectora.html -->fichaP.js-->protectora.php-->ficha.css
+

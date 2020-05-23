@@ -1,0 +1,80 @@
+body{
+
+    background-color:rgba(29, 131, 72);
+    background-image:url("../images/fondo5.png"); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%; 
+    width: 100vw; 
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+.card{
+
+    background-color:rgb(29, 131, 72,0.9);
+    border:1vh solid #AEE1C3;
+    border-radius: 3vh;
+    box-shadow: 2px 2px 0px #1D8348; 
+}
+
+.img-thumbnail{
+
+    width: 40vw;
+    height: 43vh;
+    background: transparent;
+    border-color: transparent;
+}
+
+label{
+
+    border:2px solid #AEE1C3;
+    border-radius: 1vw;
+    color:#AEE1C3;
+    box-shadow: 2px 2px 0px #1D8348;
+    background-color:rgb(29, 131, 72);
+    background-image:url("../images/fondo5.png"); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+label:hover{
+
+    background:#1D8348;
+    text-shadow:2px 2px 0px #1D8348;
+    transition: background 1s;
+
+}
+
+input[type="text"],input[type="password"]{
+
+    border:2px solid #AEE1C3; 
+    box-shadow: 2px 2px 0px #1D8348; 
+}
+
+.btn{
+
+    border:1px solid #AEE1C3;
+    color:#1D8348;
+}
+
+.err{
+	
+	color:#A81A1A;
+    font-weight: bold;
+}
+
+a{
+	
+	text-decoration:none;
+	color:#AEE1C3;
+    font-size:1.2em;
+    font-weight: bold;
+}
+
+a:hover{
+
+    text-decoration:none;
+	color:#27AE60;
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina 8_1</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<link rel="stylesheet" href="../css/proteAnim.css"/>
+</head>
+<body>
+    <div class="container-fluid">
+
+        <div class="row">
+            
+            <div class="card col-lg-5 col-md-4 col-sm-4 col-4" id="logo">
+
+                <div class="card-title">
+
+                    <img src="../logo/LogoPrincipal.png" class="img-thumbnail" alt="logo2"/>
+                </div>
+            </div>
+
+           <div class="card-header col-lg-3 col-md-4 col-sm-4 col-4 offset-lg-4 offset-md-4 offset-sm-4 offset-4 mt-lg-3 mt-md-3 mt-sm-3 mt-3 d-flex justify-content-center" id="usuario">¡Hola usuario!</div>
+        
+        </div>
+       <div class="row">
+
+            <div class="col-12 d-flex justify-content-center">
+                <nav class="navbar navbar-expand-sm navbar-dark ml-lg-4 ml-md-2 ml-sm-2 ml-1">
+
+                    <a class="navbar-brand" href="index.html">Menú</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                      
+                        <img src="../logo/Logo.png" class="imgNav" alt="logo2">
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                      <ul class="navbar-nav pl-lg-1">
+        
+                        <li class="nav-item pl-lg-4 pl-md-2 pr-lg-2 pr-md-1 pl-sm-1 pr-sm-1 d-flex align-self-center">
+                          <a class="nav-link pl-lg-5 pr-lg-2 pl-md-3 pl-sm-1" href="informacion.html">Información</a>
+                        </li>
+                        <li class="nav-item pl-lg-4 pl-md-4 pr-lg-2 pr-md-1 pl-sm-1 pr-sm-1 d-flex align-self-center">
+                          <a class="nav-link pl-lg-5 pr-lg-4 pl-md-4 pl-sm-1" href="animales.html">Animales en adopción</a>
+                        </li>
+                        <li class="nav-item pl-lg-4 pl-md-4 pr-lg-2 pr-md-1 pl-sm-1 pr-sm-1 d-flex align-self-center">
+                          <a class="nav-link pl-lg-5 pr-lg-4 pl-md-4 pl-sm-1" href="protectoras.html">Protectoras</a>
+                        </li> 
+                        <li class="nav-item pl-lg-4 pl-md-4 pr-lg-2 pr-md-1 pl-sm-1 pr-sm-1 d-flex align-self-center">
+                            <a class="nav-link pl-lg-5 pr-lg-4 pl-md-4 pl-sm-1" href="servADomicilio.html">Servicio a domicilio</a>
+                        </li> 
+                        <li class="nav-item pl-lg-4 pl-md-2 pr-lg-2 pr-md-1 pr-md-1 pl-sm-1 pr-sm-1 d-flex align-self-center">
+                            <a class="nav-link pl-lg-4 pr-lg-3 pl-md-3 pl-sm-2" href="contacto.html">Contacto</a>
+                        </li>    
+                      </ul>
+                    </div>  
+                </nav>
+            </div>
+       </div>
+
+
+    <div class="row offset-lg-1 offset-md-1 offset-sm-1 offset-1">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-8">
+
+            <div class="card ml-md-4 ml-lg-4 ml-sm-4 ml-3 mt-lg-3 mt-md-3 mt-sm-3 mt-3" id="card">
+                <div class="row">
+    
+                    <div class="col-lg-12 pt-lg-2 pb-lg-2" id="lista">
+    
+                    </div>
+                </div>
+             
+            </div>
+        </div>
+    </div>
+
+    <!--Inicio del codigo del PopUp o modal-->
+	
+	<div class="modal fade" id="myModal">
+		<div class="modal-dialog modal-dialog-centered">
+		  <div class="modal-content">
+		  
+				<div class="modal-header">
+				  <h4 class="modal-title">Eliminar Cuenta</h4>
+				  <button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				
+				<div class="modal-body d-flex justify-content-center">
+				  ¿Está seguro de eliminar su cuenta?
+				</div>
+				
+				<div class="modal-footer d-flex justify-content-center">
+				
+					<div class="row">
+						
+						<div class="col-lg-5">
+							
+							<button type="button" class="botonPUP btn" data-dismiss="modal" id="eliminar">Eliminar</button>
+						</div>
+						
+						<div class="col-lg-5 offset-lg-2">
+							
+							<button type="button" class="botonPUP btn" data-dismiss="modal">Cerrar</button>
+						</div>
+					</div>
+				</div>
+		  </div>
+		</div>
+    </div>
+	
+    <script src="../js/listaA.js"></script>
+	 <script src="../js/infoUsu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

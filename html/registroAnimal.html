@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina de registro de Animal</title>
+	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/registro.css">
+</head>
+<body>
+    
+    <div class="container-fluid mt-4 d-flex justify-content-center">
+
+        <div class="card p-lg-2 p-2">
+            
+           <div class="row offset-lg-1 ml-1">
+
+                <div class="col-lg-11 col-12">
+
+                    <img src="../logo/LogoPrincipal.png" class="img-thumbnail" alt="logo"/>
+                </div>
+           </div>
+
+           <div class="row ml-2 ml-lg-3">
+
+            <div class="col-lg-11 col-11">
+
+                <form method="POST" id="formul">
+                    <div class="form-group">
+    
+                        <label for="id" class="p-2">ID:</label>
+                        <input type="number" class="form-control" id="id" placeholder="Introducir ID" name="id">
+                        <p id="error1"></p>
+                    </div>
+    
+                    <div class="form-group">
+    
+                        <label for="nombre" class="p-2">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre" placeholder="Introducir nombre" name="nombre">
+                        <p id="error2"></p>
+                    </div>
+
+                    <div class="form-group">
+    
+                        <label for="esp" class="p-2">Especie:</label>
+                        <input type="text" class="form-control" id="esp" placeholder="Introducir especie" name="esp">
+                        <p id="error3"></p>
+                    </div>
+
+                    <div class="form-group">
+    
+                        <label for="edad" class="p-2">Edad:</label>
+                        <input type="text" class="form-control" id="edad" placeholder="Introducir edad" name="edad">
+                        <p id="error4"></p>
+                    </div>
+
+                    <div class="form-group">
+    
+                        <label for="gen" class="p-2">Género:</label>
+                        <input type="text" class="form-control" id="gen" placeholder="Introducir género" name="gen">
+                        <p id="error5"></p>
+                    </div>
+
+                    <div class="form-group">
+    
+                        <label for="raza" class="p-2">Raza:</label>
+                        <input type="text" class="form-control" id="raza" placeholder="Introducir raza" name="raza">
+                        <p id="error6"></p>
+                    </div>
+
+                    <div class="form-group">
+    
+                        <label for="fechaN" class="p-2">Fecha de nacimiento:</label>
+                        <input type="date" class="form-control" id="fechaN" placeholder="Introducir fecha de nacimiento" name="fechaN">
+                        <p id="error7"></p>
+                    </div>
+                    
+                    <div class="form-group">
+    
+                        <label for="tiempI" class="p-2">Tiempo para la inyección:</label>
+                        <input type="text" class="form-control" id="tiempI" placeholder="Introducir tiempo" name="tiempI">
+                        <p id="error8"></p>
+                    </div>
+
+                    <div class="form-group">
+    
+                        <label for="peso" class="p-2">Peso:</label>
+                        <input type="number" class="form-control" id="peso" placeholder="Introducir peso" name="peso">
+                        <p id="error9"></p>
+                    </div>
+
+                    <div class="form-group">
+    
+                        <label for="imag" class="p-2">Imagen de perfil :</label>
+                        <input type="file" class="form-control" id="imag" name="imag">
+                    </div>
+
+                    <div class="row pr-2">
+                    
+                        <div class="col-4 col-lg-4 offset-lg-4"> 
+                            <button type="submit" class="btn btn-light" id="reg">Registrar Animal</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+           </div>
+        </div>
+    </div>
+	
+	<script src="../js/registroAnimal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>

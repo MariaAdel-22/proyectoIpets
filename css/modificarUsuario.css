@@ -1,0 +1,102 @@
+body{
+
+    background-color:rgba(29, 131, 72);
+    background-image:url("../images/fondo5.png"); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%; 
+    width: 100vw; 
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+.caja{
+
+    background-color:rgb(29, 131, 72,0.9);
+    border:1vh solid #AEE1C3;
+    border-radius: 3vh;
+    box-shadow: 2px 2px 0px #1D8348; 
+    width: 55vw !important;
+}
+
+img{
+
+    height: 25vh !important;
+    width: 25vh !important;
+    border:1vh solid #AEE1C3 !important;
+    z-index: 0;
+}
+
+label{
+
+    display: flex;
+    position: absolute;
+    top:21vh;
+    z-index:1;
+    font-size: 1.2em;
+    color:#AEE1C3;
+    opacity: 0.6;
+}
+
+.fa-plus-circle:hover{
+
+    opacity: 1;
+}
+
+.caja2{
+
+    background-color:rgb(29, 131, 72,0.1);
+    border:1vh double #AEE1C3;
+    border-radius: 3vh;
+    box-shadow: 2px 2px 0px #1D8348; 
+    width: 45vw !important;
+	font-size:1em;
+}
+
+.card-body{
+
+    border:0.3vh solid #27AE60;
+    border-radius: 3vh;
+    width: 35vw !important;
+    font-size: 1em !important;
+    color:#AEE1C3;
+}
+
+.fa-edit{
+
+    opacity: 0.6;
+}
+
+.fa-edit:hover{
+
+    opacity: 1;
+    cursor: pointer;
+}
+
+#imag {
+
+    opacity: 0;
+    width:1vw;
+    height: 1vh;
+    z-index:2;
+    position:absolute;
+    top:23vh;
+    left:59vh;
+    cursor: pointer !important;
+}
+
+.btn{
+
+    border:1px solid #AEE1C3;
+    color:#1D8348;
+}
+
+.inpD{
+	
+	border:2px solid #AEE1C3;
+    border-radius: 1vw;
+    color:#AEE1C3;
+    box-shadow: 2px 2px 0px #1D8348;
+    background-color:rgb(29, 131, 72);
+    font-weight: bold;
+    font-size: 1.1em;
+}

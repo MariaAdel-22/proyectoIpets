@@ -1,0 +1,322 @@
+body{
+
+    background-color:rgba(29, 131, 72);
+    background-image:url("../images/fondo5.png"); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100vw; 
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+.card-header{
+
+   background-color:rgb(29, 131, 72,0.9);
+    border:1vh solid #AEE1C3;
+    border-radius: 1vh;
+    color:#AEE1C3;
+    font-weight: bold;
+    font-size: 1.3em;
+    height: 20vh !important;
+}
+
+.card{
+
+    background: transparent;
+    border-style: none;
+    width:25vw;
+}
+
+.img-thumbnail{
+
+    width: 25vw;
+    height: 34vh;
+    background: transparent;
+    border-color: transparent;
+}
+
+.imgNav{
+
+    width: 9vw;
+    height: 7vh;
+}
+
+.navbar{
+
+    background:#1D8348;
+    border:3px solid;
+    border-color:#AEE1C3;
+    border-radius: 1vw;
+}
+
+.nav-item{
+
+    background: #1D8348;
+
+}
+
+.navbar-toggler{
+
+    background:#186D3C;
+    border:2px solid;
+    border-radius:1vh;
+}
+
+.navbar-nav{
+
+  text-align: center; 
+}
+
+.nav-link{
+
+    border-radius: 1vh;
+    text-align: center;
+}
+
+.nav-link:hover{
+
+    color:#339444;
+}
+
+@media screen and (min-width:1300px){
+
+
+    nav{
+
+        width:90vw;
+    }
+	
+	body{
+        height: 100%;
+    }
+}
+
+@media screen and (max-width:1299px){
+
+    nav{
+
+        width:95vw;
+    }
+
+    body{
+        height: 100%;
+    }
+}
+
+@media screen and (max-width:550px){
+
+    nav{
+
+        width:95vw;
+    }
+
+    body{
+        height: 100%;
+    }
+}
+
+.caja{
+
+
+    width: 25vw !important;
+	height:35vh;
+    background-color:rgb(29, 131, 72,0.9);
+    border:1vh solid #AEE1C3;
+    border-radius: 1vh;
+}
+
+.caja2{
+
+
+    width: 13vw;
+    background-color:rgb(29, 131, 72,0.9);
+    border:1vh solid #AEE1C3;
+    border-radius: 1vh;
+}
+
+.tit{
+
+    font-size: 1.3em !important;
+    font-weight: bold;
+    color:#AEE1C3;
+    text-shadow: 1px 1px 0px #27AE60;
+}
+
+label{
+
+    color:#AEE1C3 !important;
+    font-size: 1.3em !important;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px #27AE60;
+}
+
+.custom-control-label::after{
+
+    border: 2px solid rgb(24, 109, 60,0.7) !important;
+}
+
+#opNo{
+
+    display: none;
+}
+
+.imag{
+
+    height: 15vh;
+    width: 10vw;
+    border:2px solid #AEE1C3;
+}
+
+.cajita{
+
+    background-color: rgb(93, 194, 136,0.7);
+    border:3px solid;
+    border-color:#AEE1C3;
+    border-radius: 1vw;
+}
+
+.card-body{
+
+    border-top:2px solid #AEE1C3;
+    display: flex;
+    justify-content: center;
+}
+
+.nombre{
+
+    color:#186D3C !important;
+    font-size: 1.3em !important;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px #AEE1C3;
+}
+
+#adoptar{
+
+    border:0.5vh solid #AEE1C3;
+    background:#27AE60;
+    color:#AEE1C3;
+}
+
+#adoptar:hover{
+
+    background: #186D3C;
+    color:#AEE1C3;
+}
+
+.err{
+	
+	color:#A81A1A;
+    font-weight: bold;
+	display:none;
+}
+
+.btn{
+
+    background-color: #27AE60 !important;
+    width: 6vw;
+    border: 2px solid #E4F5EB !important;
+}
+
+.boton{
+	
+	background-color: #AEE1C3 !important;
+    width: 10vw;
+    border: 2px solid rgb(29, 131, 72,0.9);
+	color:#1d8348 !important;
+    font-size: 1em;
+	cursor: pointer;
+}
+
+.fas{
+	
+	color: #E4F5EB !important;
+}
+
+i{
+	
+	font-size:1.3em !important;
+}
+
+.dropdown-toggle{
+	
+	color: #E4F5EB !important;
+}
+
+.dropdown-menu{
+	
+	background-color:rgb(29, 131, 72,0.9);
+    border:0.3vh solid #AEE1C3;
+    border-radius: 1vh;
+    color:#AEE1C3;
+}
+
+.dropdown-item{
+	
+	font-weight:bold;
+	color:#AEE1C3;
+}
+
+.dropdown-item:hover{
+	
+	background:#AEE1C3;
+	color:#27AE60;
+}
+
+@media screen and (max-width:800px){
+
+	.caja{
+		
+		height:49vh !important;
+	}
+	
+	.imag{
+		
+		height:15.3vh !important;
+		width:15.3vw !important;
+	}
+	
+	.boton{
+		
+		width:12vw !important;
+	}
+	
+}
+
+.modal-content{
+	
+	background-color:rgb(29, 131, 72,0.9) !important;
+}
+
+.botonPUP{
+	
+	width:10vw !important;
+	font-size:1em !important;
+	color:#AEE1C3;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+.botonPUP:hover{
+	
+	background:#186D3C !important;
+	color:#AEE1C3;
+}
+
+.modal-body{
+	
+	font-size:1.3em !important;
+	color:#AEE1C3;
+	font-weight:bold;
+}
+
+.modal-title{
+	
+	color:#AEE1C3;
+}
+
+.close{
+	
+	color:#AEE1C3 !important;
+}
+
+

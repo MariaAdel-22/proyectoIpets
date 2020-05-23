@@ -1,0 +1,321 @@
+body{
+
+    background-color:rgba(29, 131, 72);
+    background-image:url("../images/fondo5.png"); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    width: 100vw; 
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+.card-header{
+
+    background-color:rgb(29, 131, 72,0.9);
+    border:1vh solid #AEE1C3;
+    border-radius: 1vh;
+    color:#AEE1C3;
+    font-weight: bold;
+    font-size: 1.3em;
+    height: 20vh !important;
+}
+
+.card{
+
+    background: transparent;
+    border-style: none; 
+}
+
+.card-title{
+
+    background: transparent;
+    border-style: none;
+    width:25vw;
+}
+
+.img-thumbnail{
+
+    width: 25vw;
+    height: 34vh;
+    background: transparent;
+    border-color: transparent;
+}
+
+.imgNav{
+
+    width: 9vw;
+    height: 7vh;
+}
+
+.navbar{
+
+    background:#1D8348;
+    border:3px solid;
+    border-color:#AEE1C3;
+    border-radius: 1vw;
+}
+
+.nav-item{
+
+    background: #1D8348;
+
+}
+
+.navbar-toggler{
+
+    background:#186D3C;
+    border:2px solid;
+    border-radius:1vh;
+}
+
+.navbar-nav{
+
+  text-align: center; 
+}
+
+.nav-link{
+
+    border-radius: 1vh;
+    text-align: center;
+}
+
+.nav-link:hover{
+
+    color:#339444;
+}
+
+
+@media screen and (min-width:1300px){
+
+
+    nav{
+
+        width:90vw;
+    }
+	
+	body{
+	 
+		height: 100%; 
+		background-size: cover;
+		background-repeat: repeat; 
+    }
+	
+}
+
+@media screen and (max-width:1299px){
+
+    nav{
+
+        width:95vw;
+    }
+
+    body{
+        height: 100%;
+    }
+}
+
+#card{
+
+    width:78vw;
+    background-color:rgb(29, 131, 72,0.9);
+    border:1vh solid #AEE1C3;
+    border-radius: 1vh;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color:#AEE1C3;
+    
+}
+
+.media{
+
+    width:59vw;
+    margin-left: 9vw;
+    background-color:rgb(29, 131, 72,0.9);
+    border:1vh solid #AEE1C3;
+    border-radius: 1vh;
+    z-index: 1;
+}
+
+.test{
+	
+    background-color:rgb(39, 174, 96,0.5);
+    border:0.3vh solid #AEE1C3;
+    border-radius: 3vh;
+}
+
+.test:hover{
+	
+	background-color: rgb(39, 174, 96,0.9)!important;
+	transition:background 1s !important;
+}
+
+.color{
+	
+	border:0.3vh solid rgba(29, 131, 72) !important;
+	background-image:url("../images/fondo5.png"); 
+	background-size: cover;
+	padding:0.8vh !important;
+	border-radius:2vh;
+	height: 23vh !important;
+	width:18vw !important;
+}
+
+.color2{
+
+	border:0.3vh solid rgba(29, 131, 72) !important;
+	background-image:url("../images/fondo5.png"); 
+	background-size: cover;
+	padding:0.8vh !important;
+	border-radius:2vh;
+	height: 7vh !important;
+	width:7vw !important;
+}
+
+.nom{
+	
+	font-size:1em;
+}
+
+.media-body{
+	
+	border:0.3vh solid rgba(29, 131, 72) !important;
+	border-radius:2vh;
+	background-image:url("../images/fondo5.png"); 
+	background-size: cover;
+}
+ 
+.fa-edit{
+
+    opacity: 0.6;
+}
+
+.fa-edit:hover{
+
+    opacity: 1;
+    cursor: pointer;
+}
+
+.fa-minus-circle{
+	
+	opacity: 0.6;
+}
+
+.fa-minus-circle:hover{
+	
+	opacity: 1;
+    cursor: pointer;
+}
+
+.btn{
+
+    background-color: #27AE60 !important;
+    width: 6vw;
+    border: 2px solid #E4F5EB !important;
+}
+
+
+.boton{
+
+    background-color: #27AE60 !important;
+    width: 6vw;
+    border:2px solid #AEE1C3;
+	border-radius:2vh;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.fa-heart{
+	
+	color:#AEE1C3;
+}
+
+
+.boton:hover{
+
+    background-color:rgb(29, 131, 72,0.1) !important;
+    border:2px solid #AEE1C3;
+}
+
+.fas{
+	
+	color: #E4F5EB !important;
+}
+
+
+i{
+	
+	font-size:1.3em !important;
+	color: #E4F5EB !important;
+}
+
+.dropdown-toggle{
+	
+	color: #E4F5EB !important;
+}
+
+.dropdown-menu{
+	
+	background-color:rgb(29, 131, 72,0.9);
+    border:0.3vh solid #AEE1C3;
+    border-radius: 1vh;
+    color:#AEE1C3;
+}
+
+.dropdown-item{
+	
+	font-weight:bold;
+	color:#AEE1C3;
+}
+
+.dropdown-item:hover{
+	
+	background:#AEE1C3;
+	color:#27AE60;
+}
+
+.card-body{
+	
+	background-color:rgb(39, 174, 96,1);
+    border:0.7vh solid #AEE1C3;
+    border-radius: 7vh;
+	color:#AEE1C3;
+	font-size:1.3em;
+}
+
+.modal-content{
+	
+	background-color:rgb(29, 131, 72,0.9) !important;
+}
+
+.botonPUP{
+	
+	width:10vw !important;
+	font-size:1em !important;
+	color:#AEE1C3;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+.botonPUP:hover{
+	
+	background:#186D3C !important;
+	color:#AEE1C3;
+}
+
+.modal-body{
+	
+	font-size:1.3em !important;
+	color:#AEE1C3;
+	font-weight:bold;
+}
+
+.modal-title{
+	
+	color:#AEE1C3;
+}
+
+.close{
+	
+	color:#AEE1C3 !important;
+}
