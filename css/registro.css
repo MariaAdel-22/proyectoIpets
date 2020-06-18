@@ -3,7 +3,6 @@ body{
     background-color:rgba(29, 131, 72);
     background-image:url("../images/fondo5.png"); 
     background-size: cover;
- 
     height: 100vh; 
     width: 100vw; 
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
@@ -32,7 +31,6 @@ label{
     color:#AEE1C3;
     box-shadow: 2px 2px 0px #1D8348;
     text-shadow:2px 2px 0px #1D8348;
-    /*background-color: #229854;*/
     background-image:url("../images/fondo5.png"); 
     background-size: cover;
     background-repeat: no-repeat;
@@ -63,4 +61,36 @@ p{
 
     color:#A81A1A;
     font-weight: bold;
+}
+
+input:valid{
+	
+	border:2px solid #AEE1C3;
+}
+
+input:invalid{
+	
+	border:2px solid #A81A1A;
+}
+
+.inpD{
+	
+	border:2px solid #AEE1C3;
+    border-radius: 1vw;
+    color:#AEE1C3;
+    box-shadow: 2px 2px 0px #1D8348;
+    background-color:rgb(29, 131, 72);
+	background-image:url("../images/fondo5.png"); 
+    background-size: cover;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.card-body{
+
+    border:0.3vh solid #27AE60;
+    border-radius: 3vh;
+    width: 35vw !important;
+    font-size: 1em !important;
+    color:#AEE1C3;
 }

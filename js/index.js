@@ -1,5 +1,7 @@
 $(document).ready(function(){
 	
+	//El primer AJAX muestra la caja que aparece en el lateral derecho del Index con la frase ¡Hola,[variable de sesión obtenida por el php que se pasó en inicioSesionU.js]! y el icono de configuración.
+	
 	$.ajax({
 		
 		url:"../PHP/nombreUsuarioPag2.php",
@@ -14,6 +16,8 @@ $(document).ready(function(){
 		}
 	});
 	
+	//El segundo AJAX hace la consulta y muestra los datos actualizados de la cantidad de animales y protectoras que hay en la plataforma.
+	
 	$.ajax({
 		
 		url:"../PHP/datosPag2.php",
@@ -27,6 +31,8 @@ $(document).ready(function(){
 			$("#resul").html("No se puede mostrar los datos por el momento");
 		}
 	});
+	
+	//Es el botón del PopUp que aparece al pulsar la opción de eliminar la cuenta, te redirige al inicio de sesión eliminando la sesión.
 	
 	$('#myModal').on('click','#eliminar',function(){
 		
@@ -43,6 +49,7 @@ $(document).ready(function(){
 				console.log("Hubo un fallo");
 			}
 		})
+		
 	});
 });
 

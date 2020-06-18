@@ -1,0 +1,4 @@
+Historial.html:
+
+->Falta añadir que se pueda ordenar de manera ascendente/descendente desde cualquier campo.
+

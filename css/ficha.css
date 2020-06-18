@@ -3,7 +3,7 @@ body{
     background-color:rgba(29, 131, 72);
     background-image:url("../images/fondo5.png"); 
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     height: 100vh; 
     width: 100vw; 
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
@@ -20,14 +20,12 @@ body{
 
 .imag{
 
-    height:35vh !important;
-    width:20vw !important;
-    padding: 1vh;
+   
     border-radius: 8vh;
     background-color:rgb(39, 174, 96,0.5);
     background-image:url("../images/fondo5.png"); 
     background-size: cover;
-    border:0.7vh solid #AEE1C3;
+    border:1.1vh solid #AEE1C3;
 }
 
 .datos{
@@ -50,12 +48,11 @@ body{
 .boton2{
 
     background-color: #AEE1C3 !important;
-    width: 10vw;
+    width: 15vw !important;
     border: 2px solid rgb(29, 131, 72,0.9);
     color:#1d8348;
     font-size: 1em;
     position: relative;
-    top:-9vh;
     cursor: pointer;
 }
 
@@ -141,7 +138,6 @@ i::before{
 
     .btn{
 
-        top:-1vh;
         width:16vw !important;
     }
 
@@ -163,4 +159,70 @@ i::before{
     color:#AEE1C3;
     position:absolute;
     top:10vh;
+}
+
+.ima{
+	
+	background-size:cover !important;
+}
+
+.ima2{
+	
+	background-size:cover !important;
+	height:25vh !important;
+}
+
+.colum2{
+	
+	width:15vw !important;
+	height:15vh !important;
+}
+
+.colum{
+	
+	width:30vw !important;
+	height:20vh !important;
+}
+
+.boton4{
+	
+	background-color: #AEE1C3 !important;
+    width: 15vw;
+    border: 2px solid rgb(29, 131, 72,0.9);
+	color:#1d8348;
+    font-size: 1em;
+	cursor: pointer;
+	
+}
+
+.fi{
+	
+	width:25vw !important;
+}
+
+#in > input[type="text"]{
+	display:none;
+}
+
+#in > input[type="file"]{
+	
+	display:none;
+}
+
+.inP{
+	
+	border-radius:2vw !important;
+	border:1vh solid #AEE1C3;
+	color:#1d8348;
+}
+
+.inpD{
+	
+	border:2px solid #AEE1C3;
+    border-radius: 1vw;
+    color:#AEE1C3;
+    box-shadow: 2px 2px 0px #1D8348;
+    background-color:rgb(29, 131, 72);
+    font-weight: bold;
+    font-size: 1.1em;
 }

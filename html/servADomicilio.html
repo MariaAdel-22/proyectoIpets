@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina 6</title>
+    <title>Pagina de servicio a domicilio</title>
 
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -16,20 +16,20 @@
 
         <div class="row">
             
-            <div class="card col-lg-5 col-md-4 col-sm-4 col-4" id="logo">
+            <div class="card col-lg-4 col-md-4 col-sm-4 col-4 d-flex justify-content-start" id="logo">
 
                 <div class="card-title">
 
-                    <a href="index.html"><img src="../logo/LogoPrincipal.png" class="img-thumbnail" alt="logo2"/></a>
+                    <a href="indexProtectora.html"><img src="../logo/LogoPrincipal.png" class="img-thumbnail img-fluid" alt="logo2"/></a>
                 </div>
             </div>
 
-            <div class="card-header col-lg-3 col-md-4 col-sm-4 col-4 offset-lg-4 offset-md-4 offset-sm-4 offset-4 mt-lg-3 mt-md-3 mt-sm-3 mt-3 d-flex justify-content-center" id="usuario">¡Hola usuario!</div>
+            <div class="card-header col-lg-3 col-md-4 col-sm-5 col-6 offset-lg-4 offset-md-4 offset-sm-3 offset-2 mt-lg-3 mt-md-3 mt-sm-3 mt-3 d-flex justify-content-center" id="usuario">¡Hola usuario!</div>
         
         </div>
-       <div class="row">
+       <div class="row d-flex justify-content-center">
 
-            <div class="col-12 d-flex justify-content-center">
+            <div class="col-12">
                 <nav class="navbar navbar-expand-sm navbar-dark ml-lg-4 ml-md-2 ml-sm-2 ml-1">
 
                     <a class="navbar-brand" href="index.html">Menú</a>
@@ -60,76 +60,80 @@
                 </nav>
             </div>
        </div>
-
-        <div class="row offset-lg-1 offset-md-1 offset-sm-1 offset-1">
-
-            <div class="col-lg-4 col-md-4 col-sm-4 col-4 caja ml-lg-5 mt-lg-4 ml-md-5 mt-md-4 ml-sm-5 mt-sm-4 ml-5 mt-4">
-
-                <form method="POST">
-                
-                    <div class="row">
-
-                        <div class="col-lg-12 col-md-12 col-sm-12 mt-lg-3 d-flex justify-content-center">
-                            <p id="tit" class="tit">¿La dirección registrada en tu cuenta será a la que envíes el animal adoptado?</p>
-                        </div>
-
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-center mb-lg-3 mb-md-5 mb-sm-5 mb-5">
-
-                                <div class="custom-control custom-radio custom-control-inline">
-
-                                    <input type="radio" class="custom-control-input" id="radio1" name="radio1" value="Si" checked>
-                                    <label class="custom-control-label" for="radio1">Si</label>
-                                </div>
-
-                                <div class="custom-control custom-radio custom-control-inline">
-
-                                    <input type="radio" class="custom-control-input" id="radio2" name="radio1" value="No">
-                                    <label class="custom-control-label" for="radio2">No</label>
-                                </div>
-                        </div>
-						<p id="err1" class="err ml-lg-2">Por favor selecciona una de las dos opciones.</p>
-                    </div>
-
-                    <div class="row" id="opNo">
-
-                        <div class="col-lg-12">
-
-                            <div class="form-group">
-                                <label for="calle">Calle:</label>
-                                <input type="text" class="form-control" placeholder="Introduce una calle" id="calle">
-								<p id="err2" class="err ml-lg-2">Por favor rellene el campo Calle.</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="num">Número:</label>
-                                <input type="number" class="form-control" placeholder="Introduce el número de la calle" id="num">
-								<p id="err3" class="err ml-lg-2">Por favor rellene el campo Número.</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="puerta">Puerta:</label>
-                                <input type="text" class="form-control" placeholder="Introduce el número de piso y puerta" id="puerta">
-								<p id="err4" class="err ml-lg-2">Por favor rellene el campo Puerta.</p>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-			<div class="col-lg-6 col-md-6 col-sm-6 col-6 ml-lg-4 mt-lg-4 ml-md-4 mt-md-4 ml-sm-4 mt-sm-4 ml-4 mt-4 caja2">
-
-				<div class="row" id="opciones">
-
-					
-
-				</div>
-				<p id="err5" class="err ml-lg-2">Por favor selecciona un animal para adoptar.</p>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4 col-4 d-flex justify-content-center">
-				 <button type="button" class="boton btn ml-lg-5" id="adoptar">Adoptar</button>
-			</div>
-        </div>
 		
+		<form id="formu">
+			<div class="row d-flex justify-content-center">
+
+				<div class="col-lg-4 col-md-6 col-sm-7 col-6 caja mt-lg-4 mt-md-4 mt-sm-4 mt-4 d-flex align-items-center">
+
+					<div class="row" id="fi">
+
+						<div class="col-12 mt-lg-3 d-flex justify-content-center">
+							<p id="tit" class="tit">¿La dirección registrada en tu cuenta será a la que envíes el animal adoptado?</p>
+						</div>
+
+						<div class="col-12 d-flex justify-content-center mb-lg-3 mb-md-5 mb-sm-5 mb-5">
+
+								<div class="custom-control custom-radio custom-control-inline">
+
+									<input type="radio" class="custom-control-input" id="radio1" name="radio1" value="Si" checked>
+									<label class="custom-control-label" for="radio1">Si</label>
+								</div>
+
+								<div class="custom-control custom-radio custom-control-inline">
+
+									<input type="radio" class="custom-control-input" id="radio2" name="radio1" value="No">
+									<label class="custom-control-label" for="radio2">No</label>
+								</div>
+						</div>
+						<p id="err1" class="err ml-lg-2">Por favor selecciona una de las dos opciones.</p>
+					
+						<div class="col-12 nS" id="opNo">
+
+							<div class="form-group">
+								<label for="calle">Calle:</label>
+								<input type="text" class="form-control" placeholder="Introduce una calle" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]{2,20}" id="calle"/>
+								<p id="err2" class="err ml-lg-2">Por favor rellene el campo Calle.</p>
+							</div>
+
+							<div class="form-group">
+								<label for="num">Número:</label>
+								<input type="number" class="form-control" placeholder="Introduce el número de la calle" id="num"/>
+								<p id="err3" class="err ml-lg-2">Por favor rellene el campo Número.</p>
+							</div>
+
+							<div class="form-group">
+								<label for="puerta">Puerta:</label>
+								<input type="text" class="form-control" placeholder="Introduce el número de piso y puerta" id="puerta"/>
+								<p id="err4" class="err ml-lg-2">Por favor rellene el campo Puerta.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row d-flex justify-content-center align-self-center" id="fila">
+					
+				<div class="col-lg-8 col-md-10 col-sm-11 col-11 card d-flex align-self-center mt-3" id="card">
+				
+					<div class="row d-flex justify-content-center" id="opciones">
+					
+					
+					</div>
+					<p id="err5" class="err ml-2">Por favor selecciona un animal para adoptar.</p>
+				</div>
+				
+			</div>
+			
+			<div class="row d-flex justify-content-center">
+				
+				<div class="col-lg-6 col-md-6 col-sm-6 col-6 d-flex justify-content-center">
+			
+					<button type="submit" class="boton btn mt-3" id="adoptar">Adoptar</button>
+				</div>
+			
+			</div>
+		</form>
     </div>
 
 	<!--Inicio del codigo del PopUp o modal-->

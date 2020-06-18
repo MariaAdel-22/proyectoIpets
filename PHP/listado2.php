@@ -1,22 +1,34 @@
 <?php
-
-	$con=mysqli_connect('localhost','root','','ipetsbbdd') or die('Error de conexion'.mysqli_error($con));
+	
+	header('Content-Type: text/html; charset=UTF-8');
 	
 	session_start();
+	
+	$con=mysqli_connect('localhost','root','','ipetsbbdd') or die('Error de conexion'.mysqli_error($con));
+	$con->set_charset("utf8");
 	
 	$_SESSION['resp1']  = $_POST['resp1'];
 	
 	$resp=$_POST['resp1'];
 	
 	
-	if($resp == "TODOS"){
+	switch($resp){
 		
-		$consulta="SELECT RAZA FROM animal ORDER BY RAZA ASC";
-	}else{
-		$consulta="SELECT RAZA FROM animal WHERE ESPECIE='$resp' ORDER BY RAZA ASC";
+		case "TODOS":
+		
+			$consulta="SELECT RAZA FROM animal ORDER BY RAZA ASC";
+			$res=mysqli_query($con,$consulta) or die('Consulta fallida'.mysqli_error($con));
+		
+		break;
+		
+		default:
+		
+			$consulta="SELECT RAZA FROM animal WHERE ESPECIE='$resp' ORDER BY RAZA ASC";
+			$res=mysqli_query($con,$consulta) or die('Consulta fallida'.mysqli_error($con));
+		
+		break;
+		
 	}
-	
-	$res=mysqli_query($con,$consulta) or die('Consulta fallida'.mysqli_error($con));
 	
 	$fila=mysqli_fetch_assoc($res);
 	
@@ -37,7 +49,7 @@
 		}
 		
 	}
-	
+	echo $resp;
 	mysqli_close($con);
 	
 ?>

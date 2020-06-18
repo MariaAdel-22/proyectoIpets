@@ -95,6 +95,15 @@ body{
     }
 }
 
+@media screen and (max-width:930px){
+	
+	.btn{
+		
+		width:8vw !important;
+	}
+	
+}
+
 .card-body{
 
     width:80vw;

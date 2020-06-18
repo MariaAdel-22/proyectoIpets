@@ -1,42 +1,231 @@
 <?php
-
+	
+	header('Content-Type: text/html; charset=UTF-8');
+	
 	session_start();
+	error_reporting(0);
 	
-	$con=mysqli_connect('localhost','root','','ipetsbbdd') or die('Conexion fallida'.mysqli_error($con));
-	
+	$datoP=$_SESSION['idP'];
 	$dni=$_SESSION['dni'];
+	$id1=$_SESSION['id1'];
 	
-	$consulta="SELECT NOMBRE,LOCALIDAD,EMAIL,IMAGEN FROM usuario WHERE DNI='$dni'";
+	if($datoP != ""){
 	
-	$res=mysqli_query($con,$consulta) or die('Consulta fallida'.mysqli_error($con));
-	$fila=mysqli_fetch_assoc($res);
-	
-	while($fila){
+		unset($_SESSION['idP']);
+		unset($_SESSION['dni']);
+		$id="";
+		$dni="";
 		
-		$nombre=$fila['NOMBRE'];
-		$local=$fila['LOCALIDAD'];
-		$email=$fila['EMAIL'];
-		$imag=$fila['IMAGEN'];
+		$datos=array();
 		
-		echo "<div class='col-lg-4 col-md-4 col-sm-12 col-12 ml-2'>";				
-			echo "<img src='../$imag' class='imag mr-3 mt-3 img-fluid img-thumbnail'/>";
-        echo "</div>";
-						
-		while($fila && $nombre==$fila['NOMBRE']){
+		$con=mysqli_connect('localhost','root','','ipetsbbdd') or die('Conexion fallida'.mysqli_error($con));
+		$con->set_charset("utf8");
+		
+		$consulta="SELECT * FROM protectora WHERE IDENTIFICADOR='$datoP'";
+
+		$res=mysqli_query($con,$consulta)or die('Consulta fallida'.mysqli_error($con));
+	
+		while($fila=mysqli_fetch_row($res)){
 			
-			$fila=mysqli_fetch_assoc($res);
+			foreach($fila as $valor){
+				
+				array_push($datos,$valor);
+			}
 		}
 		
-		echo "<div class='datos col-lg-6 col-md-6 col-sm-10 col-9 offset-lg-1 offset-md-1 offset-sm-1 offset-1 mt-lg-3 mb-lg-3 mt-md-3 mb-md-3 mt-sm-3 mb-sm-3 mt-3 mb-3 ml-5'>";
+		$consulta2="SHOW COLUMNS FROM protectora";
+		$res2=mysqli_query($con,$consulta2) or die('Consulta fallida'.mysqli_error($con));
+		$fila2=mysqli_fetch_assoc($res2);
+		
+		echo "<div class='datos col-lg-8 col-md-9 col-sm-10 col-11 mt-lg-3 mb-lg-3 mt-md-3 mb-md-3 mt-sm-3 mb-sm-3 mt-3 mb-3' id='protectora'>";
+				while($fila2){
+					
+					for($i=0;$i<sizeof($datos);$i++){
+						
+						$cab=$fila2['Field'];
+						$fila2=mysqli_fetch_assoc($res2);
+						
+						if($cab == "IMAGEN"){
+							
+							$imag=$datos[$i];
+							$info = new SplFileInfo($dat);
+							
+							if(substr_compare($dat, "PROTECTORA", 0, 9)){
+								
+		
+								echo "<div class='row d-flex justify-content-center mt-lg-3 mt-md-3 mt-sm-3 mt-3'>";
+				
+									echo "<div class='col-lg-6 col-md-7 col-sm-8 col-9 d-flex justify-content-center mb-3'>";
 
-			echo "<div class='dato card-body d-flex justify-content-center mt-lg-3 mt-md-3 mt-sm-3 mt-3' id='1'><h4>Nombre: <i>$nombre</i></div>";
-			echo "<div class='dato card-body d-flex justify-content-center mt-lg-3 mt-md-3 mt-sm-3 mt-3' id='2'><h4>Localidad: <i>$local</i></div>";
-			echo "<div class='dato card-body d-flex justify-content-center mt-lg-3 mt-md-3 mt-sm-3 mt-3 mb-lg-3 mb-md-3 mb-sm-3 mb-3' id='3'><h4>Email: <i>$email</i></div>";
-        echo "</div>";
+										echo "<img class='imag p-lg-2 p-md-2 p-sm-2 p-2 rounded-circle img-thumbnail img-responsive d-flex align-self-center' src='../images/PROTECTORAS/$imag' alt='Imagen Perfil'>";
 
-		echo "<div class='col-lg-2 offset-lg-1 col-md-2 offset-md-1 col-sm-9 offset-sm-1 col-10 offset-1'>";
-                echo "<button type='button' class='btn boton2' id='btn'>Atrás</button>";
-        echo "</div>";
+									echo "</div>";
+								echo "</div>";
+							}
+						}else{
+							
+							if(($cab !="CONTRASENIA")&&($cab!="IDENTIFICADOR")){
+								
+								echo "<div class='dato card-body d-flex justify-content-center mt-lg-3 mt-md-3 mt-sm-3 mt-3' id='$datos[$i]'><h4 id='$cab'>$cab: <i>$datos[$i]</i></h4></div>";
+							}
+						}
+							
+					}
+				}
+				
+			echo "<div class='row d-flex justify-content-center mt-2 mb-2'>";
+			
+				echo "<div class='col-lg-2 col-md-2 col-sm-9 col-10 d-flex justify-content-center'>";
+					echo "<button type='button' class='btn boton2' id='btn'>Atrás</button>";
+				echo "</div>";
+			echo "</div>";
+		echo "</div>";
+	}else
+	
+
+	if($id1 != ""){
+	
+		unset($_SESSION['idP']);
+		unset($_SESSION['dni']);
+		$datoP="";
+		$dni="";
+		
+		$datos=array();
+		
+		$con=mysqli_connect('localhost','root','','ipetsbbdd') or die('Conexion fallida'.mysqli_error($con));
+		$con->set_charset("utf8");
+		
+		$consulta="SELECT * FROM animal WHERE ID='$id1'";
+
+		$res=mysqli_query($con,$consulta)or die('Consulta fallida'.mysqli_error($con));
+	
+		while($fila=mysqli_fetch_row($res)){
+			
+			foreach($fila as $valor){
+				
+				array_push($datos,$valor);
+			}
+		}
+		
+		$consulta2="SHOW COLUMNS FROM animal";
+		$res2=mysqli_query($con,$consulta2) or die('Consulta fallida'.mysqli_error($con));
+		$fila2=mysqli_fetch_assoc($res2);
+		
+		echo "<div class='datos col-lg-8 col-md-9 col-sm-10 col-11 mt-lg-3 mb-lg-3 mt-md-3 mb-md-3 mt-sm-3 mb-sm-3 mt-3 mb-3' id='animal'>";
+				while($fila2){
+					
+					for($i=0;$i<sizeof($datos);$i++){
+						
+						$cab=$fila2['Field'];
+						$fila2=mysqli_fetch_assoc($res2);
+						
+						if($cab == "IMAGEN"){
+							
+							$imag=$datos[$i];
+							$info = new SplFileInfo($dat);
+							
+							echo "<div class='row d-flex justify-content-center mt-lg-3 mt-md-3 mt-sm-3 mt-3'>";
+			
+								echo "<div class='col-lg-6 col-md-7 col-sm-8 col-9 d-flex justify-content-center mb-3'>";
+
+									echo "<img class='imag p-lg-2 p-md-2 p-sm-2 p-2 rounded-circle img-thumbnail img-fluid d-flex align-self-center' src='../images/$imag' alt='Imagen Perfil'>";
+
+								echo "</div>";
+							echo "</div>";
+							
+						}else if($cab != "ID"){
+							
+							echo "<div class='dato card-body d-flex justify-content-center mt-lg-3 mt-md-3 mt-sm-3 mt-3' id='$datos[$i]'><h4 id='$cab'>$cab: <i>$datos[$i]</i></h4></div>";
+							
+						}
+							
+					}
+				}
+				
+			echo "<div class='row d-flex justify-content-center mt-2 mb-2'>";
+			
+				echo "<div class='col-lg-2 col-md-2 col-sm-9 col-10 d-flex justify-content-center'>";
+					echo "<button type='button' class='btn boton2' id='btn'>Atrás</button>";
+				echo "</div>";
+			echo "</div>";
+		echo "</div>";
+		
 	}
+		
+	if($dni!=""){
+			
+		unset($_SESSION['idP']);
+		unset($_SESSION['id1']);
+		$datoP="";
+		$id1="";
+		
+		
+		$datos=array();
+		
+		$con=mysqli_connect('localhost','root','','ipetsbbdd') or die('Conexion fallida'.mysqli_error($con));
+		$con->set_charset("utf8");
+		
+		$consulta="SELECT * FROM usuario WHERE DNI='$dni'";
+
+		$res=mysqli_query($con,$consulta)or die('Consulta fallida'.mysqli_error($con));
+	
+		while($fila=mysqli_fetch_row($res)){
+			
+			foreach($fila as $valor){
+				
+				array_push($datos,$valor);
+			}
+		}
+		
+		$consulta2="SHOW COLUMNS FROM usuario";
+		$res2=mysqli_query($con,$consulta2) or die('Consulta fallida'.mysqli_error($con));
+		$fila2=mysqli_fetch_assoc($res2);
+		
+		echo "<div class='datos col-lg-8 col-md-9 col-sm-10 col-11 mt-lg-3 mb-lg-3 mt-md-3 mb-md-3 mt-sm-3 mb-sm-3 mt-3 mb-3' id='usuario'>";
+				while($fila2){
+					
+					for($i=0;$i<sizeof($datos);$i++){
+						
+						$cab=$fila2['Field'];
+						$fila2=mysqli_fetch_assoc($res2);
+						
+						if($cab == "IMAGEN"){
+							
+							$imag=$datos[$i];
+							$info = new SplFileInfo($dat);
+							
+							if(substr_compare($dat, "PROTECTORA", 0, 9)){
+								
+		
+								echo "<div class='row d-flex justify-content-center mt-lg-3 mt-md-3 mt-sm-3 mt-3'>";
+				
+									echo "<div class='col-lg-6 col-md-7 col-sm-8 col-9 d-flex justify-content-center mb-3'>";
+
+										echo "<img class='imag p-lg-2 p-md-2 p-sm-2 p-2 rounded-circle img-thumbnail img-responsive d-flex align-self-center' src='../images/$imag' alt='Imagen Perfil'>";
+
+									echo "</div>";
+								echo "</div>";
+							}
+						}else{
+							
+							if($cab !="CONTRASENIA"){
+								echo "<div class='dato card-body d-flex justify-content-center mt-lg-3 mt-md-3 mt-sm-3 mt-3' id='$datos[$i]'><h4 id='$cab'>$cab: <i>$datos[$i]</i></h4></div>";
+							}
+						}
+							
+					}
+				}
+				
+			echo "<div class='row d-flex justify-content-center mt-2 mb-2'>";
+			
+				echo "<div class='col-lg-2 col-md-2 col-sm-9 col-10 d-flex justify-content-center'>";
+					echo "<button type='button' class='btn boton2' id='btn'>Atrás</button>";
+				echo "</div>";
+			echo "</div>";
+		echo "</div>";
+		
+	}
+	
 	mysqli_close($con);
+
 ?>

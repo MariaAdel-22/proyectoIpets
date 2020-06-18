@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,116 +14,34 @@
 
         <div class="card p-lg-2 p-2">
             
-           <div class="row offset-lg-1 ml-1">
+           <div class="row offset-lg-1 ml-1" id="log">
 
                 <div class="col-lg-11 col-12">
 
                     <img src="../logo/LogoPrincipal.png" class="img-thumbnail" alt="logo"/>
                 </div>
            </div>
-
-           <div class="row ml-2 ml-lg-3">
-
-            <div class="col-lg-11 col-11">
-
-                <form method="POST" id="formul">
-                    <div class="form-group">
-    
-                        <label for="nombre" class="p-2">Nombre :</label>
-                        <input type="text" class="form-control" id="nombre" placeholder="Introducir nombre" name="nombre">
-                        <p id="error1"></p>
-                    </div>
-    
-                    <div class="form-group">
-    
-                        <label for="apel" class="p-2">Apellidos:</label>
-                        <input type="text" class="form-control" id="apel" placeholder="Introducir apellidos" name="apel">
-                        <p id="error2"></p>
-                    </div>
-
-                    <div class="form-group">
-    
-                        <label for="dni" class="p-2">DNI :</label>
-                        <input type="text" class="form-control" id="dni" placeholder="Introducir dni" name="dni">
-                        <p id="error3"></p>
-                    </div>
-
-                    <div class="form-group">
-    
-                        <label for="edad" class="p-2">Edad:</label>
-                        <input type="number" class="form-control" id="edad" placeholder="Introducir edad" name="edad">
-                        <p id="error4"></p>
-                    </div>
-
-                    <div class="form-group">
-    
-                        <label for="local" class="p-2">Localidad:</label>
-                        <input type="text" class="form-control" id="local" placeholder="Introducir localidad" name="local">
-                        <p id="error5"></p>
-                    </div>
-
-                    <div class="form-group">
-                        
-                        <label for="trab" class="p-2">¿Estás desempleado?</label>
-
-                        <div class="form-check">
-
-                            <label class="form-check-label">
-                              <input type="radio" class="form-check-input" name="trab" value="SI" checked>Si
-                            </label>
-                        </div>
-                        <div class="form-check">
-
-                            <label class="form-check-label">
-                              <input type="radio" class="form-check-input" name="trab" value="NO">No
-                            </label>
-                        </div>
-         
-                    </div>
-
-                    <div class="form-group">
-    
-                        <label for="direc" class="p-2">Dirección :</label>
-                        <input type="text" class="form-control" id="direc" placeholder="Introducir direccion" name="direc">
-                        <p id="error6"></p>
-                    </div>
-
-                    <div class="form-group">
-    
-                        <label for="codPost" class="p-2">Código postal :</label>
-                        <input type="number" class="form-control" id="codPost" placeholder="Introducir codigo postal" name="codPost">
-                        <p id="error7"></p>
-                    </div>
-                    
-                    <div class="form-group">
-    
-                        <label for="email" class="p-2">Email :</label>
-                        <input type="email" class="form-control" id="email" placeholder="Introducir email" name="email">
-                        <p id="error8"></p>
-                    </div>
-
-                    <div class="form-group">
-    
-                        <label for="contra" class="p-2">Contraseña :</label>
-                        <input type="password" class="form-control" id="contra" placeholder="Introducir contraseña" name="contra">
-                        <p id="error9"></p>
-                    </div>
-
-                    <div class="form-group">
-    
-                        <label for="imag" class="p-2">Imagen de perfil :</label>
-                        <input type="file" class="form-control" id="imag" name="imag">
-                    </div>
-
-                    <div class="row pr-2">
-                    
-                        <div class="col-4 col-lg-4 offset-lg-4"> 
-                            <button type="submit" class="btn btn-light" id="reg">Registrarme</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-           </div>
+			
+			<form id="formul" method="POST">
+			
+			   <div class="row ml-2 ml-lg-3">
+					<div class="col-lg-11 col-11" id="col">
+						
+					</div>
+				</div>
+				   
+			   <div class="row pr-2 d-flex justify-content-center mt-3" id="botones">
+						
+					<div class="col-4 col-lg-4 col-4"> 
+						<button type="button" class="btn btn-light" id="atras">Atrás</button>
+					</div>
+					
+					<div class="col-4 col-lg-4 col-4"> 
+						<button type="submit" class="btn btn-light" id="reg">Registrarme</button>
+					</div>
+					
+				</div>
+			</form>
         </div>
     </div>
 	

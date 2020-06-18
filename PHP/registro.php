@@ -1,32 +1,111 @@
 <?php
-
-    $con=mysqli_connect('localhost','root','','ipetsbbdd')or die('No se pudo establecer conexion.'.mysqli_error($con));
  
-    $nombre=$_POST['nombre'];
-    $apel=$_POST['apel'];
-    $dni=$_POST['dni'];
+ header('Content-Type: text/html; charset=UTF-8');
+  
+ error_reporting(0);
+ $dat=$_POST['datos'];
+ 
+ $tabla="";
+ 
+ $imag=$_FILES["dato"];
+ $nombre=$imag["name"];
+ $ruta_prov=$imag["tmp_name"];
 	
-    $edad=$_POST['edad'];
-    $localidad=$_POST['local'];
-    $trabajo=$_POST['trab'];
+	$ar1= array();
+	$ar2=array();
 	
-    $direccion=$_POST['direc'];
-    $codigoPost=$_POST['codPost'];
-    $email=$_POST['email'];
-	
-    $contra=$_POST['contra'];
-	
-	$imag=$_FILES['imag']['name'];
-	$src=$_FILES['imag']['tmp_name'];
-	$ruta="../images/".$imag;
-	
-	if(move_uploaded_file($src,$ruta)){
+	foreach($dat as $clave => $valor){
 		
-		$consulta="INSERT into usuario (NOMBRE,APELLIDOS,DNI,EDAD,LOCALIDAD,TRABAJO,DIRECCION,CODIGOPOSTAL,EMAIL,CONTRASENIA,IMAGEN)
-                values ('$nombre','$apel','$dni','$edad','$localidad','$trabajo','$direccion','$codigoPost','$email','$contra','$imag')";
-    
-		echo mysqli_query($con,$consulta);
-    }
-   
- mysqli_close($con);
+		$tabla=$clave;
+		
+		foreach($valor as $clave2 => $valor2){
+			
+			foreach($valor2 as $clave3 => $valor3){
+				
+				if(!empty($valor3)){
+					
+					
+					if($clave2 == "CONTRASENIA"){
+						
+						array_push($ar2,$clave2);
+						array_push($ar1,password_hash($valor3, PASSWORD_DEFAULT));
+					
+					}else{
+						array_push($ar2,$clave2);
+						array_push($ar1,$valor3);
+					}
+				}
+			}
+		}
+	}
+	
+	if(isset($imag)){
+		
+		$info = new SplFileInfo($nombre);
+		switch (substr_compare($nombre, "PROTECTORA", 0, 9)){
+			
+			case "PROTECTORA": 
+			
+				$carpeta="../images/PROTECTORAS/";
+				$src=$carpeta.$nombre;
+				
+					move_uploaded_file($ruta_prov,$src);
+					
+					array_push($ar2,"IMAGEN");
+					array_push($ar1,$nombre);
+					
+			break;
+			
+			default:
+			
+				$carpeta="../images/";
+				$src=$carpeta.$nombre;
+				
+				move_uploaded_file($ruta_prov,$src);
+					
+					array_push($ar2,"IMAGEN");
+					array_push($ar1,$nombre);
+					
+			break;
+		}
+	}
+	
+	$cabecera=implode(",",$ar2);
+	$dato="'".implode("','", $ar1)."'";
+	
+	$con=mysqli_connect('localhost','root','','ipetsbbdd') or die('Conexion fallida'.mysqli_error($con));
+	$con->set_charset("utf8");
+
+	$consulta0="INSERT INTO $tabla ($cabecera) VALUES (". mb_convert_encoding($dato,'UTF-8').")";
+	mysqli_query($con,$consulta0);
+	
+	if($tabla == "animal"){
+		
+		include 'pasoDatosProtectora.php';
+		
+		$id=$_SESSION['ident'];
+		
+		$consulta="SELECT NOMBRE FROM protectora WHERE IDENTIFICADOR='$id'";
+		$res=mysqli_query($con,$consulta);
+		$fila=mysqli_fetch_assoc($res);
+		
+		
+		while($fila){
+			
+			$protec=$fila['NOMBRE'];
+			
+			while($fila && $protec == $fila['NOMBRE']){
+				
+				$animal=$ar1[0];
+				$fila=mysqli_fetch_assoc($res);
+				
+				$consulta2="INSERT INTO disponibles (ANIMAL,PROTECTORA) VALUES ('".mb_convert_encoding($animal,'UTF-8')."','".mb_convert_encoding($protec,'UTF-8')."')";
+				mysqli_query($con,$consulta2);
+
+			}
+		}
+		
+	}
+	
+	mysqli_close($con);
 ?>

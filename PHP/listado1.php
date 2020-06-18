@@ -1,7 +1,8 @@
 <?php
-
+ 
+	header('Content-Type: text/html; charset=UTF-8');
 	$con=mysqli_connect('localhost','root','','ipetsbbdd') or die('Error de conexion'.mysqli_error($con));
-	
+	$con->set_charset("utf8");
 	$consulta="SELECT ESPECIE FROM animal ORDER BY ESPECIE ASC";
 	
 	$res=mysqli_query($con,$consulta) or die('Consulta fallida'.mysqli_error($con));
@@ -16,7 +17,6 @@
 	while($fila){
 	
 		$esp=$fila['ESPECIE'];
-		
 		echo '<option value="'.$fila['ESPECIE'].'">'.$fila['ESPECIE'].'</option>';
 		
 		while($fila && $esp==$fila['ESPECIE']){
@@ -26,13 +26,5 @@
 		
 	}
 	
-	
-	
 	mysqli_close($con);	
 ?>
-
-
-
-
-                      
-                    

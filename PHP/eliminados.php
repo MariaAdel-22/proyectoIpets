@@ -1,31 +1,23 @@
 <?php
+
+	header('Content-Type: text/html; charset=UTF-8');
+	
+	error_reporting(0);
 	
 	include 'pasoDatosDeUsuario.php';
+	include 'pasoDatosPag8_1.php';
 	
 	$nombre=$_SESSION['nombre'];
-	$id=$_POST['id1'];
 	
-	
-	$con=mysqli_connect('localhost','root','','ipetsbbdd') or die('Conexion fallida'.mysqli_error($con));
+	$id=$_SESSION['id2'];
 
-	$consulta="SELECT u.DNI,a.ID FROM usuario u, animal a WHERE u.NOMBRE='$nombre' AND a.ID='$id' ORDER BY DNI ASC";
+	$con=mysqli_connect('localhost','root','','ipetsbbdd') or die('Conexion fallida'.mysqli_error($con));
+	$con->set_charset("utf8");
 	
-	$res=mysqli_query($con,$consulta) or die('Consulta fallida'.mysqli_error($con));
-	$fila=mysqli_fetch_assoc($res);
+	$consulta2="DELETE p1,p2,p3 FROM seleccionados p1,disponibles p2,animal p3 WHERE p1.USUARIO='$nombre' AND p3.ID='$id' AND p1.ANIMAL=p3.NOMBRE AND p2.ANIMAL=p3.NOMBRE";
 	
-	while($fila){
-		
-		$dni=$fila['DNI'];
+	$res2=mysqli_query($con,$consulta2)or die('consulta fallida'.mysqli_error($con));
 	
-		while($fila && $dni==$fila['DNI'] ){
-			
-			$ide=$fila['ID'];
-			$consulta2="DELETE FROM seleccionados WHERE USUARIO='$dni' AND ANIMAL='$ide'";
-			$res2=mysqli_query($con,$consulta2)or die('Segunda consulta fallida'.mysqli_error($con));
-			$fila=mysqli_fetch_assoc($res);
-		}
-		
-	}
 	
 	mysqli_close($con);
 ?>

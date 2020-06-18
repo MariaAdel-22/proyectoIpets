@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animales</title>
+    <title>Opciones de elección</title>
 
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -16,21 +16,21 @@
      
       <div class="row">
             
-        <div class="card col-lg-5 col-md-4 col-sm-4 col-4" id="logo">
+		<div class="card col-lg-4 col-md-4 col-sm-4 col-4 d-flex justify-content-start" id="logo">
 
-            <div class="card-title">
+			<div class="card-title">
 
-                 <a href="index.html"><img src="../logo/LogoPrincipal.png" class="img-thumbnail" alt="logo2"/></a>
-            </div>
-        </div>
+				<a href="index.html"><img src="../logo/LogoPrincipal.png" class="img-thumbnail img-fluid" alt="logo2"/></a>
+			</div>
+		</div>
 
-        <div class="card-header col-lg-3 col-md-4 col-sm-4 col-4 offset-lg-4 offset-md-4 offset-sm-4 offset-4 mt-lg-3 mt-md-3 mt-sm-3 mt-3 d-flex justify-content-center" id="usuario">¡Hola usuario!</div>
+       <div class="card-header col-lg-3 col-md-4 col-sm-5 col-6 offset-lg-4 offset-md-4 offset-sm-3 offset-2 mt-lg-3 mt-md-3 mt-sm-3 mt-3 d-flex justify-content-center" id="usuario">¡Hola usuario!</div>
     
     </div>
 
-   <div class="row">
+   <div class="row d-flex justify-content-center">
 
-        <div class="col-12 d-flex justify-content-center">
+        <div class="col-12">
             <nav class="navbar navbar-expand-sm navbar-dark ml-lg-4 ml-md-2 ml-sm-2 ml-1">
 
                 <a class="navbar-brand" href="index.html">Menú</a>
@@ -61,50 +61,52 @@
             </nav>
         </div>
    </div>
-
-      <div class="card-body ml-md-4 ml-lg-5 ml-sm-4 ml-4 mt-lg-5" id="resul">
-          
-        <div class="row ml-lg-4 d-flex justify-content-center">
-            <div class="col-lg-12">
-                  <p id="tit" class="tit">¿Qué tipo de animal deseas adoptar?</p>
-            </div>
-
-            <div class="col-lg-4 col-sm-9 ml-sm-2 col-8 ml-3  d-flex justify-content-center">
-              <form id="formul">
-      
-                <div class="form-group">
+ 
+	<div class="card-body ml-md-4 ml-lg-5 ml-sm-4 ml-4 mt-lg-5" id="resul">
+	  
+		<div class="row d-flex justify-content-center">
+			<div class="col-lg-5">
+				<p id="tit" class="tit">¿Qué tipo de animal deseas adoptar?</p>
+			</div>
+		</div>
+		
+		<div class="row d-flex justify-content-center mt-3">
+			<form id="formul">
+				<div class="col-lg-12" id="op1">
 				
-                    <label for="lis1" class="tit" id="val1">Selecciona Especie:</label>
-						<select class="form-control" id="lis1" name="lis1">
-						
-						</select>
-                </div>
-              <p class="err" id="error1"></p>
-              </div>
-
-              <div class="col-lg-3 col-sm-9 ml-sm-2 col-8 mr-5" id="op2">
-                <div class="form-group">
-                  
-				  <label for="lis2" class="tit" id="val2">Selecciona Raza:</label>
-				  <select class="form-control" id="lis2" name="lis2">
-			
+					<label for="lis1" class="tit">Selecciona Especie:</label>
+					<select id="lis1" name="lis1" class="inpS pt-2 pb-2">
+					
 					</select>
-                </div>
-              </div>
-
-              <div class="col-lg-3 col-sm-9 ml-sm-2 col-8 ml-3" id="op3"> 
-              
-                  <div class="form-group">
-                      <label for="lis3" class="tit">Selecciona Edad:</label>
-                      <select class="form-control" id="lis3" name="lis3">
-                          
-                      </select>
-                  </div>
-              </div>
-                <button type="button" class="btn mb-3" id="buscar">Buscar</button>
-              </form>
-        </div>
-      </div>
+				</div>
+				<p class="err" id="err1"></p>
+				
+				<div class="col-lg-12" id="op2">
+				
+					<label for="lis2" class="tit ml-3">Selecciona Raza:</label>
+					<select id="lis2" name="lis2" class="inpS pt-2 pb-2">
+					
+					</select>
+				</div>
+				<p class="err" id="err2"></p>
+			
+				<div class="col-lg-12" id="op3">
+				
+					<label for="lis3" class="tit ml-2">Selecciona Edad:</label>
+					<select id="lis3" name="lis3" class="inpS pt-2 pb-2 ml-1">
+					
+					</select>
+				</div>
+				<p class="err" id="err3"></p>
+				
+				<div class="col-lg-12 mt-3">
+				
+					<button type="button" class="boton btn" id="buscar">Buscar</button>
+					
+				</div>
+			</form>
+		</div>
+	</div>
 </div>
 
 <!--Inicio del codigo del PopUp o modal-->

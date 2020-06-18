@@ -3,6 +3,8 @@ $(document).ready(function(){
 	let cont=0;
 	let b=new Array();
 	
+	//Me creo mi función de leer cookies que utilizaré una vez pulse al icono de favorito.
+	
 	function leerG(name){
 
 		let nombre=name+"=";
@@ -22,7 +24,12 @@ $(document).ready(function(){
 
 		}
 	}
-					
+	
+	/*Con éste AJAX muestro toda la lista de animales con las especificaciones dadas en la página anterior, y al cargarse el listado, busco todos los iconos y a través
+	  del DOM accedo al atributo ID del animal, cuando lo tengo utilizo la función de leer cookies para comprobar si existe una cookie con ese nombre (que es el valor ID)
+	  y si existe entonces accede hasta el icono y cámbialo por uno que se vea el corazón relleno, y si no, entonces cámbialo a un icono con los bordes solamente y cómo se 
+	  guarda,aparece esa configuración al iniciar sesión y entrar al listado, que no desaparece.*/
+	
 	$.ajax({
 		
 		url:"../PHP/listaAnimales.php",
@@ -88,7 +95,9 @@ $(document).ready(function(){
 			console.log("Ha ocurrido un error");
 		}
 	});
-
+	
+	//Al pulsar la imagen del animal llévame a su ficha en otra página,para ello me paso el ID del animal para que muestre la ficha de ése animal.
+	
 	$('#lista').on('click','#imag',function(){
 		
 		id=$(this).parent().attr('id');
@@ -97,11 +106,11 @@ $(document).ready(function(){
 			
 			url:"../PHP/pasoDatosPag8_1.php",
 			type:'POST',
-			data:"id="+id,
+			data:"id1="+id,
 			success:function(resp){
 
-				location.href="../PHP/fichaAnimal.php";
-				window.location.href="../html/fichaAnimal.html";
+				location.href="../PHP/fichaParaUsuario.php";
+				window.location.href="../html/fichaParaUsuario.html";
 			},
 			error:function(){
 				
@@ -110,6 +119,8 @@ $(document).ready(function(){
 		});
 	});
 	
+	/*Si pulsa al botón de favorito, me busca el icono y me guardo el ID del animal,para que,con la función de crear la cookie me la cree siempre y cuando la cookie no exista,
+	si existe entonces cambia el icono y la elimina (marcar y desermarcar).*/
 	
 	$('#lista').on('click','.boton',function(e){
 	
@@ -151,6 +162,7 @@ $(document).ready(function(){
 					
 					console.log("Se ha añadido");
 					crearG(ide,1,"1");
+	
 				},
 				error:function(){
 					
@@ -166,7 +178,7 @@ $(document).ready(function(){
 			
 			$.ajax({
 		
-				url:"../PHP/eliminados.php",
+				url:"../PHP/desSeleccionado.php",
 				type:'POST',
 				data:"id1="+ide,
 				success:function(resp){
@@ -181,6 +193,8 @@ $(document).ready(function(){
 			});
 		}
 	});
+	
+	//Botón eliminar del PopUp
 	
 	$('#myModal').on('click','#eliminar',function(){
 		

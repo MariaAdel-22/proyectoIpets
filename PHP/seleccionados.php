@@ -1,27 +1,34 @@
 <?php
 	
+	header('Content-Type: text/html; charset=UTF-8');
+	
+	error_reporting(0);
 	include 'pasoDatosDeUsuario.php';
 	
 	$nombre=$_SESSION['nombre'];
 	$id=$_POST['id1'];
 	
-	
 	$con=mysqli_connect('localhost','root','','ipetsbbdd') or die('Conexion fallida'.mysqli_error($con));
-
-	$consulta="SELECT u.DNI,a.ID FROM usuario u, animal a WHERE u.NOMBRE='$nombre' AND a.ID='$id' ORDER BY DNI ASC";
+	$con->set_charset("utf8");
+	 
+	$consulta="SELECT u.NOMBRE 'nom_u',a.NOMBRE 'nom_a',d.PROTECTORA FROM usuario u,animal a,disponibles d WHERE u.NOMBRE='$nombre' 
+	AND a.NOMBRE=(SELECT NOMBRE FROM animal WHERE ID='$id') AND a.NOMBRE=d.ANIMAL";
 	
 	$res=mysqli_query($con,$consulta) or die('Consulta fallida'.mysqli_error($con));
 	$fila=mysqli_fetch_assoc($res);
 	
 	while($fila){
 		
-		$dni=$fila['DNI'];
-	
-		while($fila && $dni==$fila['DNI'] ){
+		$dni=$fila['nom_u'];
+		$prot=$fila['PROTECTORA'];
+
+		while($fila && $dni==$fila['nom_u'] ){
 			
-			$ide=$fila['ID'];
-			$consulta2="INSERT into seleccionados (USUARIO,ANIMAL) values ('$dni','$ide')";
-			$res2=mysqli_query($con,$consulta2)or die('Segunda consulta fallida'.mysqli_error($con));
+			$ide=$fila['nom_a'];
+			$consulta2="INSERT into seleccionados (USUARIO,ANIMAL,PROTECTORA) values ('".mb_convert_encoding($dni,'UTF-8')."','".mb_convert_encoding($ide,'UTF-8')."','".mb_convert_encoding($prot,'UTF-8')."')";
+			
+			mysqli_query($con,$consulta2)or die('Segunda consulta fallida'.mysqli_error($con));
+
 			$fila=mysqli_fetch_assoc($res);
 		}
 		

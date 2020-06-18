@@ -1,5 +1,8 @@
 $(document).ready(function(){
 	
+	/*Con el primer AJAX carga el recuadro que se encuentra en la parte superior derecha de la página con el ¡Hola,[variable de sesión]! almacenada al iniciar sesión y
+	el icono con las configuraciones*/
+	
 	$.ajax({
 		
 		url:"../PHP/datosIdentProtectora.php",
@@ -14,6 +17,8 @@ $(document).ready(function(){
 		}
 	});
 	
+	//El segundo AJAX muestra todos los animales que tiene la protectora que hayan sido seleccionados como favorito,y si no hay con un mensaje lo avisa a la protectora.
+	
 	$.ajax({
 		
 		url:"../PHP/animalesFavoritos.php",
@@ -25,7 +30,6 @@ $(document).ready(function(){
 			if(resp == ""){
 				
 				$('#lista').append("Todavía no se ha seleccionado ningún animal tuyo como favorito.");
-				$('#lista').css("margin-left","3vw");
 			}
 		},
 		error:function(){
@@ -34,6 +38,8 @@ $(document).ready(function(){
 		}
 	});
 
+	//Si al cargar la lista pulsa la imagen del usuario que lo ha añadido como favorito,recoge el id del contenedor que es el dni y lo pasa por php con una variable de sesión a la ficha para ver los datos.
+	
 	$('#lista').on('click','.test',function(){
 		
 		id=$(this).attr("id");
@@ -55,20 +61,23 @@ $(document).ready(function(){
 		});
 	});
 	
+	//Botón de eliminar en el PopUp
+	
 	$('#myModal').on('click','#eliminar',function(){
 		
 		$.ajax({
 			
-			url:"../PHP/eliminarProtectora.php",
+			url:"../PHP/eliminarUsuario.php",
 			type:'POST',
 			success:function(resp){
 				
-				location.href="../html/iniciarSesion2.html";
+				location.href="../html/iniciarSesion.html";
 			},
 			error:function(){
 				
 				console.log("Hubo un fallo");
 			}
 		})
+		
 	});
 });

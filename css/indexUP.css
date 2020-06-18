@@ -3,10 +3,16 @@ body{
     background-color:rgba(29, 131, 72);
     background-image:url("../images/fondo5.png"); 
     background-size: cover;
-    background-repeat: no-repeat;
     height: 100%; 
     width: 100vw; 
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+.img-thumbnail{
+	
+	background:transparent;
+	background-size:cover;
+	border:none;
 }
 
 .card{
@@ -17,46 +23,62 @@ body{
     box-shadow: 2px 2px 0px #1D8348; 
 }
 
-.img-thumbnail{
-
-    width: 40vw;
-    height: 43vh;
-    background: transparent;
-    border-color: transparent;
+.boton{
+	
+	background-color:#27AE60;
+    border:0.2vh solid #AEE1C3;
+	border-radius:1vh;
+	color:#AEE1C3;
+	font-size:1.4em;
+	font-weight:bold;
 }
 
-label{
+.boton2{
+	
+	background-color:#27AE60;
+    border:0.2vh solid #AEE1C3;
+	border-radius:1vh;
+	color:#AEE1C3;
+	font-size:1.1em;
+	font-weight:bold;
+}
 
-    border:2px solid #AEE1C3;
+.tit{
+	
+	color:#AEE1C3;
+	font-weight:bold;
+}
+
+.inpD{
+	
+	border:2px solid #AEE1C3;
     border-radius: 1vw;
     color:#AEE1C3;
     box-shadow: 2px 2px 0px #1D8348;
     background-color:rgb(29, 131, 72);
-    background-image:url("../images/fondo5.png"); 
+	background-image:url("../images/fondo5.png"); 
     background-size: cover;
-    background-repeat: no-repeat;
     font-weight: bold;
     font-size: 1.1em;
 }
 
-label:hover{
+.card-body{
 
-    background:#1D8348;
-    text-shadow:2px 2px 0px #1D8348;
-    transition: background 1s;
-
+    border:0.3vh solid #27AE60;
+    border-radius: 3vh;
+    width: 35vw;
+    font-size: 1em !important;
+    color:#AEE1C3;
 }
 
-input[type="text"],input[type="password"]{
-
-    border:2px solid #AEE1C3; 
-    box-shadow: 2px 2px 0px #1D8348; 
+.siV{
+	
+	display:block;
 }
 
-.btn{
-
-    border:1px solid #AEE1C3;
-    color:#1D8348;
+.noV{
+	
+	display:none;
 }
 
 .err{
@@ -65,16 +87,60 @@ input[type="text"],input[type="password"]{
     font-weight: bold;
 }
 
-a{
+#err1{
 	
-	text-decoration:none;
-	color:#AEE1C3;
-    font-size:1.2em;
-    font-weight: bold;
+	display:none;
 }
 
-a:hover{
+@media screen and (max-width:864px){
+	
+	.inpD{
+		
+		width:30vw !important;
+	}
+}
 
-    text-decoration:none;
-	color:#27AE60;
+@media screen and (max-width:815px){
+	
+	.inpD{
+		
+		width:27vw !important;
+	}
+	
+}
+
+@media screen and (max-width:797px){
+	
+	.inpD{
+		
+		width:25vw !important;
+	}
+	
+}
+
+@media screen and (max-width:736px){
+	
+	.inpD{
+		
+		width:22vw !important;
+		margin-left:6vh;
+	}
+	
+}
+
+@media screen and (max-width:604px){
+	
+	.card-body{
+		
+		margin-left:5vh;
+	}
+}
+
+@media screen and (max-width:574px){
+	
+	.card-body{
+		
+		margin-left:6vh;
+	}
+	
 }

@@ -1,20 +1,27 @@
 $(document).ready(function(){
-
-	cont=0;
-	val="";
-	selec=false;
 	
-	check1=false;
-	check2=false;
-	check3=false;
+	let va="";
+	let daC="";
+	let cont=0;
+	let check1=false;
+	let check2=false;
+	let check3=false;
 	
-	$.ajax({
+	
+	//Con éste AJAX lo que hago es cargar todos los animales que han sido seleccionados por el usuario en el listado de animales, y si no hay muestro un mensaje avisando de ello.
+	
+   $.ajax({
 		
 		url: "../PHP/pagina6.php",
 		type:"POST",
 		success:function(resp){
 			
-			$('#opciones').append(resp);
+			if((resp=="")&&(/^\s*$/.test(resp))){
+				
+				$('#opciones').append("<div class='co1 test col-lg-8 col-md-11 col-sm-11 col-11 media mt-2 mb-2 d-flex justify-content-center'>No has seleccionado ning&uacute;n animal como favorito.</div>");
+			}else{
+				$('#opciones').append(resp);
+			}
 		},
 		error:function(){
 			
@@ -22,151 +29,234 @@ $(document).ready(function(){
 		}
 	});
 	
+	//Si cambia el valor del radio,mira su valor y si es No entonces haz que los inputs que muestra sean requeridos, si la opción es Si entonces quítales el requerido y ocúltalos.
 	
-   $("input[name='radio1']").click(function(){
-
-       
-        $("input[name='radio1']").each(function(){
-
-            if($(this).is(':checked')){
-        
-                val= $(this).attr('value');     
-            }
-        });
-
-        if(val == "Si"){
-
-            $('#opNo').css('display','none');
-			$('.caja').css('height','35vh');
-        }else{
-            
-            $('#opNo').css('display','block');
-			$('.caja').css('height','80vh');
-			
-			$('#calle').blur(function(){
-
-				if($('#calle').val() == ""){
-
-					$('#err2').css('display','block');
-					return false;
-
-				}else{
-
-					$('#err2').css('display','none');
-					check1=true;
-				}
-			});
-
-			$('#num').blur(function(){
-
-				if($('#num').val() == ""){
-
-					$('#err3').css('display','block');
-					return false;
-
-				}else{
-
-					$('#err3').css('display','none');
-					check2=true;
-				} 
-			});
-
-			$('#puerta').blur(function(){
-
-				if($('#puerta').val() == ""){
-
-					$('#err4').css('display','block');
-					return false;
-
-				}else{
-
-					$('#err4').css('display','none');
-					check3=true;            
-				}
-			});
-        }
-   }); 
-   
-   
-   $('#opciones').on('click','.cajita',function(){
-	   
-	    cont++;
-	   $(this).css('background','#27AE60');
-   });
-   
-   $('#adoptar').click(function(){
-	   
-	  let clave=$('#opciones').children().children().attr('id');
-	  
-	  $("input[name='radio1']").each(function(){
-
-            if($(this).is(':checked')){
-        
-               selec=true;   
-            }
-        });
+	$("input[name=radio1]").change(function(){
 		
-		if(selec == true){
-
-			 $('#err1').css('display','none');
+		va=$(this).val();
+		
+		switch(va){
+			
+			case "Si":
+				
+				$('#calle').removeAttr("required");
+				$('#num').removeAttr("required");
+				$('#puerta').removeAttr("required");
+				
+				$('#opNo').removeClass('sS');
+				$('#opNo').addClass('nS');
+				
+			break;
+			
+			case "No":
+				
+				$('#opNo').removeClass('nS');
+				$('#opNo').addClass('sS');
+				
+				$('#calle').attr("required", true);
+				$('#num').attr("required", true);
+				$('#puerta').attr("required", true);
+				
+			break;
+		}
+		
+	});
+	
+	//Cuando cada input pierde el foco,comprueba si cumple con el patrón establecido,si es true entonces el check se vuelve true, si no,entonces permanece false y no valida cuando pulsas el botón.
+	
+	$('#calle').blur(function(){
+		
+		reg=/[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]{2,20}/g;
+		val=$('#calle').val();
+		
+		if(reg.test(val)){
+			
+			check1=true;
+			$('#err2').css('display','none');
+			
+		}else{
+			$('#err2').css('display','block');	
+		}
+		
+	});
+	
+	$('#num').blur(function(){
+		
+		reg=/[0-9]{1,2}/g;
+		val=$('#num').val();
+		
+		if(reg.test(val)){
+			
+			check2=true;
+			$('#err3').css('display','none');
+			
+		}else{
+			$('#err3').css('display','block');
+			
+		}
+		
+	});
+	
+	$('#puerta').blur(function(){
+		
+		reg=/[0-9]{1,2}/g;
+		val=$('#puerta').val();
+		
+		if(reg.test(val)){
+			
+			check3=true;
+			$('#err4').css('display','none');
+			
+		}else{
+			$('#err4').css('display','block');
+			
+		}
+	});
+	
+	//Si pulsas el contenedor que almacena los datos del animal, comprueba de qué color es su background,cambiando su color y sumando el valor de contador o restando. Por ejemplo, por si se pulse más de uno o ninguno que no valide.
+	
+	$('#opciones').on('click','.test',function(){
+	   
+		daC=$(this).attr('id');
+		
+		if($(this).hasClass('co1')){
+			
+			$(this).removeClass('co1');
+			$(this).addClass('co2');
+			cont++;
+			
+		}else{
+			
+			$(this).removeClass('co2');
+			$(this).addClass('co1');
+			cont--;
+		}
+		
+	   if(cont == 1){
+		   
+		   $('#err5').css('display','none');
+	   }else{
+		   $('#err5').css('display','block');
+	    }
+		
+	});
+	
+	/*Comprueba que todos los valores cumplen los requisitos (de si el contador es 1,si los check están en true si la opción del radio es No). 
+	Si valida entonces manda el id para añadirlo en la tabla de adoptados y mándame a la página tras la adopción, si no entonces avisa al usuario de ello.*/
+	
+	$('#adoptar').click(function(event){
+		
+		let valor="";
+		let dat="";
+		let clave=$(this).parent().parent().parent().children();
+		 
+		$("input[name=radio1]:checked").each(
+			function() {
+				
+				valor=$(this).val();
+			}
+		);
+			
+		if(cont==1){
+			for(cla1 of clave){
 			 
-				if((val == "Si")&&(cont > 0)){
+				if($(cla1).attr('id')=="fila"){
 					
-					console.log("validado");
+					cla2=$(cla1).children();
 					
-					$.ajax({
-			
-						url:"../PHP/eliminados.php",
-						type:"POST",
-						data:"id1="+clave,
-						success:function(){
+					for(cla3 of cla2){
+						
+						if($(cla3).attr('id')=="card"){
 							
-							console.log("ha sido eliminado");
-							window.location.href="../html/pagTrasAdoptar.html";
-						},
-						error:function(){
+							cla4=$(cla3).children();
 							
-							console.log("ha ocurrido un error");
-						}
-					});
-				}else if(val == "No"){
-					
-					if((check1 && check2 && check3)&&(cont > 0)){
-				 
-						$.ajax({
-			
-							url:"../PHP/eliminados.php",
-							type:"POST",
-							data:"id1="+clave,
-							success:function(){
-								
-								console.log("ha sido eliminado");
-								window.location.href="../html/pagTrasAdoptar.html";
-							},
-							error:function(){
-								
-								console.log("ha ocurrido un error");
+							for(cla5 of cla4){
+							
+								if($(cla5).attr('id')=="opciones"){
+									
+									cla6=$(cla5).children();
+									
+									for(cla7 of cla6){
+										
+										dat=$(cla7).attr('id');
+										
+										if(dat == daC){
+											
+											switch(valor){
+				
+												case "Si":
+													
+													$.ajax({
+													
+														url:"../PHP/adoptados.php",
+														type:"POST",
+														data:"id2="+dat,
+														success:function(resp){
+															
+															location.href="../PHP/pasoDatosPag8_1.php";
+															window.location.href="../html/pagTrasAdoptar.html";
+														},
+														error:function(){
+															
+															console.log("ha ocurrido un error");
+														}
+													});
+												
+													event.preventDefault();
+													
+												break;
+												
+												case "No":
+													
+													if(check1 && check2 && check3){
+														
+														$.ajax({
+													
+															url:"../PHP/adoptados.php",
+															type:"POST",
+															data:"id2="+dat,
+															success:function(resp){
+																
+																location.href="../PHP/pasoDatosPag8_1.php";
+																window.location.href="../html/pagTrasAdoptar.html";
+															},
+															error:function(){
+																
+																console.log("ha ocurrido un error");
+															}
+														});
+														
+														event.preventDefault();
+													}else{
+														
+														$('#formu').submit(function(){
+															return false;
+														});
+													}
+												
+												break;
+											}
+										}
+									}
+								}
 							}
-						});
-					
-					}else{
-						console.log("NO validado");
+						}
 					}
 				}
+			}
 		}else{
-			
-			$('#err1').css('display','block');
-		}
-	
-		if(cont == 0){
 			
 			$('#err5').css('display','block');
-		}else{
-			$('#err5').css('display','none');
+			$('#formu').submit(function(){
+				return false;
+			});
 		}
 		
-   });
-   
+	});
+	
+	
+	//Botón eliminar del PopUp
+     
    $('#myModal').on('click','#eliminar',function(){
 		
 		$.ajax({

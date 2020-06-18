@@ -29,8 +29,6 @@ body{
 
 .img-thumbnail{
 
-    width: 25vw;
-    height: 34vh;
     background: transparent;
     border-color: transparent;
 }
@@ -85,6 +83,13 @@ body{
 
         width:90vw;
     }
+	
+	.img-thumbnail{
+		
+		width:70%;
+		height:40%;
+	}
+	
 }
 
 @media screen and (max-width:1299px){
@@ -93,8 +98,37 @@ body{
 
         width:95vw;
     }
+	
+	.img-thumbnail{
+		
+		width:80%;
+		height:40%;
+	}
 }
 
+@media screen and (max-width:930px){
+	
+	.btn{
+		
+		width:8vw !important;
+	}
+	
+	.img-thumbnail{
+		
+		width:90%;
+		height:50%;
+	}
+}
+
+@media screen and (max-width:630px){
+	
+	.img-thumbnail{
+		
+		width:100%;
+		height:60%;
+	}
+	
+}
 
 .card-body{
 

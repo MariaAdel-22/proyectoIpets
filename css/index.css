@@ -1,17 +1,18 @@
 body{
 
-    background-color:rgba(29, 131, 72);
+    background-color:rgb(29, 131, 72);
     background-image:url("../images/fondo5.png"); 
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh; 
     width: 100vw; 
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+	overflow-x:hidden;
 }
 
 .card-header{
 
-    background-color:rgb(29, 131, 72,0.9);
+    background-color:rgba(29, 131, 72, 0.902);
     border:1vh solid #AEE1C3;
     border-radius: 1vh;
     color:#AEE1C3;
@@ -29,8 +30,6 @@ body{
 
 .img-thumbnail{
 
-    width: 25vw;
-    height: 34vh;
     background: transparent;
     border-color: transparent;
 }
@@ -85,6 +84,12 @@ body{
 
         width:90vw;
     }
+	
+	.img-thumbnail{
+		
+		width:70%;
+		height:40%;
+	}
 }
 
 @media screen and (max-width:1299px){
@@ -93,14 +98,36 @@ body{
 
         width:95vw;
     }
+	
+	.img-thumbnail{
+		
+		width:80%;
+		height:40%;
+	}
 }
 
 @media screen and (max-width:930px){
 	
 	.btn{
 		
-		width:11vw !important;
+		width:8vw !important;
 	}
+	
+	.img-thumbnail{
+		
+		width:90%;
+		height:50%;
+	}
+}
+
+@media screen and (max-width:630px){
+	
+	.img-thumbnail{
+		
+		width:100%;
+		height:60%;
+	}
+	
 }
 
 .card-body{
@@ -110,9 +137,6 @@ body{
     border-radius: 1vh;
     width:70vw;
     height: 37vh;
-    margin-top: 1vh;
-    text-align: center;
-    line-height: 24vh;
     font-size: 1.3rem;
     font-weight: bold;
     color:#AEE1C3;

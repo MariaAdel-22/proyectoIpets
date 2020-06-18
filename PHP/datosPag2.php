@@ -3,33 +3,40 @@
 		$con=mysqli_connect("localhost","root","") or die('No se pudo conectar'.mysqli_error($con));
 		mysqli_select_db($con,"ipetsbbdd")or die('No se pudo conectar a la base de datos');
 		
-		$consulta="SELECT IDENTIFICADOR,ID 
-				   FROM disponibles
-				   ORDER BY IDENTIFICADOR,ID";
+		$consulta1="SELECT IDENTIFICADOR FROM protectora";
 				   
-		$res=mysqli_query($con,$consulta)or die('Consulta fallida'.mysqli_error($con));
-		$fila=mysqli_fetch_assoc($res);
+		$res1=mysqli_query($con,$consulta1)or die('Consulta fallida'.mysqli_error($con));
+		$fila1=mysqli_fetch_assoc($res1);
+		
+		$consulta2="SELECT ID FROM animal";
+		$res2=mysqli_query($con,$consulta2)or die('Consulta fallida'.mysqli_error($con));
+		$fila2=mysqli_fetch_assoc($res2);
 		
 		$contador=0;
 		$total_animales=0;
-		while($fila){
+		
+		while($fila1){
 			
-			$nombre=$fila['IDENTIFICADOR'];
-			$contador++;
+			$nombre=$fila1['IDENTIFICADOR'];
 			
-			while($fila && $nombre==$fila['IDENTIFICADOR']){
-			
-				$cont_animales=0;
-				$animal=$fila['ID'];
+			while($fila1 && $nombre==$fila1['IDENTIFICADOR']){
 				
-				while($fila && $nombre==$fila['IDENTIFICADOR'] && $animal==$fila['ID']){
-					
-					$cont_animales++;
-					$fila=mysqli_fetch_assoc($res);
-				}
-				$total_animales+=$cont_animales;
+				$contador++;
+				$fila1=mysqli_fetch_assoc($res1);
 			}
 		}
+		
+		while($fila2){
+			
+			$animal=$fila2['ID'];
+			
+			while($fila2 && $animal==$fila2['ID']){
+				
+				$total_animales++;
+				$fila2=mysqli_fetch_assoc($res2);
+			}
+		}
+		
 		echo "Animales en adopción: ".$total_animales." y "."protectoras que colaboran: ".$contador;
 		mysqli_close($con);
 	?>
