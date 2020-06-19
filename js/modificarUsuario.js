@@ -492,7 +492,7 @@ $(document).ready(function(){
 			$.ajax({
 							
 				type:"POST",
-				url:"../PHP/modificarDatosCuenta.php",
+				url:"/PHP/modificarDatosCuenta.php",
 				data:formu,
 				cache:false,
 				processData:false,
