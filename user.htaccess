@@ -1,10 +1,2 @@
-<Directory ".">
-   Order allow,deny
-   allow from all
-</Directory>
-
-<Directory "/html">
-   DirectoryIndex index.html
-   Order allow,deny
-   allow from all
-</Directory>
+ Allow From All
+ Satisfy Any
