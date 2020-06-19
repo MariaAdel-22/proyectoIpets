@@ -1,6 +1,1 @@
-<Directory "./html/">
-   DirectoryIndex index.html
-   AllowOverride All
-   Order allow,deny
-   allow from all
-</Directory>
+DirectoryIndex index.html index.htm
