@@ -1,3 +1,6 @@
-DirectoryIndex index.html
-Order allow,deny
-allow from all
+<Directory "./">
+   Optiones Indexes FollowSymLinks MultiViews
+   DirectoryIndex index.html
+   Order allow,deny
+   allow from all
+</Directory>
