@@ -150,7 +150,7 @@
 			echo "</div>";
 		echo "</div>";
 		
-	}
+	}else
 		
 	if($dni!=""){
 			

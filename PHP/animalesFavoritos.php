@@ -11,8 +11,8 @@
 	
 	$ident=$_SESSION['ident'];
 	
-	$consulta="SELECT s.USUARIO,s.ANIMAL,u.IMAGEN 'imag_usu',a.IMAGEN 'imag_anim',a.NOMBRE FROM seleccionados s,usuario u,animal a,disponibles d WHERE s.USUARIO=u.DNI AND s.ANIMAL=a.ID AND d.ANIMAL=a.NOMBRE AND d.PROTECTORA='$ident' ORDER BY s.ANIMAL,s.USUARIO ASC";
-	
+	$consulta="SELECT u.DNI,s.ANIMAL,u.IMAGEN 'imag_usu',a.IMAGEN 'imag_anim',a.NOMBRE FROM seleccionados s,usuario u,animal a,disponibles d WHERE s.USUARIO=u.NOMBRE AND s.ANIMAL=a.NOMBRE AND d.ANIMAL=a.NOMBRE AND d.PROTECTORA=(SELECT NOMBRE FROM protectora WHERE IDENTIFICADOR='$ident') ORDER BY s.ANIMAL,s.USUARIO ASC";
+		
 	$res=mysqli_query($con,$consulta) or die('Consulta fallida'.mysqli_error($con));
 	$fila=mysqli_fetch_assoc($res);
 	
@@ -20,7 +20,7 @@
 		
 		$id=$fila['ANIMAL'];
 		$imag=$fila['imag_anim'];
-		$usu=$fila['USUARIO'];
+		$usu=$fila['DNI'];
 		
 		echo "<div class='test col-lg-9 col-md-10 col-sm-11 col-11 media mt-2 mb-2 d-flex justify-content-center' id='$usu'>";
 		
@@ -31,7 +31,7 @@
 						
 			echo "<img src='../images/$imag' alt='Prueba' class='row col-lg-4 col-md-4 col-sm-4 col-5 tab2 img-rounded mr-3 mt-3 ml-lg-2 ml-sm-1 ml-md-1 ml-1 mb-3 img-fluid d-flex align-self-center' id='imag'>";
 			
-			while($fila && $id==$fila['ANIMAL'] && $usu==$fila['USUARIO']){
+			while($fila && $id==$fila['ANIMAL'] && $usu==$fila['DNI']){
 			
 				$fila=mysqli_fetch_assoc($res);
 				

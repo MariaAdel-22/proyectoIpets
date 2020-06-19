@@ -187,7 +187,17 @@
 								
 								case "TRABAJO":
 								
-									echo "<div class='card-body d-flex justify-content-center mt-lg-3 mt-md-3 mt-sm-3 mt-3'><h4 id='".$dat."'>".$ca.": <i>".$dat."</i></h4></div><div id='in'><input type='text' name='datos[".$nombreT."][".$ca."][".$dat."][".$c."][".$nom."][]' id='".$dat."' class='inpD noV' pattern='(SI|NO|Si|No)' title='Introduzca los valores: Si o No.'/></div><div id='$ca'><i class='fas fa-edit' id='$ca'></i></div>";
+									echo "<div class='card-body d-flex justify-content-center mt-lg-3 mt-md-3 mt-sm-3 mt-3'><h4 id='".$dat."'>".$ca.": <i>".$dat."</i></h4></div>";
+										echo "<div id='in'>";
+										
+										echo "<select  name='datos[".$nombreT."][".$ca."][".$dat."][".$c."][".$nom."][]' id='".$dat."' class='inpD noV' title='Por favor seleccione una de las opciones.' required>";
+													
+											echo "<option value=''>--Selecciona una opción--</option>";
+											echo "<option value='Si'>Si</option>";
+											echo "<option value='No'>No</option>";
+												
+										echo "</select>";
+									echo "</div><div id='$ca'><i class='fas fa-edit' id='$ca'></i></div>";
 									
 								break;
 								

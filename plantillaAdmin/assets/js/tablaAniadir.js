@@ -162,12 +162,12 @@ $(document).ready(function(){
 									
 									case "TRABAJO":
 									
-										vaCa=$(pa9).val();
-										reg=/(SI|NO|Si|No)/g;
-										
-										if(reg.test(vaCa)){
+										vaCa=$(pa9).find(":selected").val();
+													
+										if(vaCa != ""){
 											
 											cant.push(true);
+											
 										}else{
 											
 											cant.push(false);

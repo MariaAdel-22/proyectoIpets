@@ -44,7 +44,7 @@ $(document).ready(function(){
 			type:'POST',
 			success:function(resp){
 				
-				location.href="../html/iniciarSesion.html";
+				location.href="../html/index.html";
 			},
 			error:function(){
 				

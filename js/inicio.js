@@ -5,14 +5,30 @@ $(document).ready(function(){
 	$.ajax({
 		
 		url:"../PHP/nombreUsuarioPag2.php",
-		type:'GET',
+		type:'POST',
 		success:function(resp){
 			
-			$("#usuario").html(resp);
+			$("#usu").html(resp);
 		},
 		error:function(){
 			
-			$("#usuario").html("No se puede mostrar el nombre del usuario por el momento");
+			$("#usu").html("No se puede mostrar el nombre del usuario por el momento");
+		}
+	});
+	
+	//El segundo AJAX hace la consulta y muestra los datos actualizados de la cantidad de animales y protectoras que hay en la plataforma.
+	
+	$.ajax({
+		
+		url:"../PHP/datosPag2.php",
+		type:'GET',
+		success:function(resp){
+			
+			$("#resul").html(resp);
+		},
+		error:function(){
+			
+			$("#resul").html("No se puede mostrar los datos por el momento");
 		}
 	});
 	
@@ -33,8 +49,8 @@ $(document).ready(function(){
 				console.log("Hubo un fallo");
 			}
 		})
+		
 	});
-	
 });
 
 

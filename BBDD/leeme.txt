@@ -1,0 +1,2 @@
+La base de datos contiene contraseñas no encriptadas porque son un añadido para mostrar la funcionalidad
+de la aplicación con datos reales, pero las nuevas cuentas añadidas sí lo tienen.

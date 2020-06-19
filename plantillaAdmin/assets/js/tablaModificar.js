@@ -300,12 +300,12 @@ $(document).ready(function(){
 								
 								case "TRABAJO":
 								
-									vaCa=$(inp3).val();
-									reg=/(SI|NO|Si|No)/g;
-									
-									if(reg.test(vaCa)){
-											
+									vaCa=$(inp3).find(":selected").val();
+													
+									if(vaCa != ""){
+										
 										cant.push(true);
+										
 									}else{
 										
 										cant.push(false);

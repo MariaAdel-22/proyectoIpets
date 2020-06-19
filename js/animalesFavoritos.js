@@ -59,6 +59,7 @@ $(document).ready(function(){
 				console.log("Algo ha fallado");
 			}
 		});
+
 	});
 	
 	//Botón de eliminar en el PopUp
@@ -71,7 +72,7 @@ $(document).ready(function(){
 			type:'POST',
 			success:function(resp){
 				
-				location.href="../html/iniciarSesion.html";
+				location.href="../html/index.html";
 			},
 			error:function(){
 				

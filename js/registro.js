@@ -173,12 +173,11 @@ $(document).ready(function(){
 									
 									case "TRABAJO":
 									
-										vaCa=$(pad5).val();
-										reg=/(SI|NO|Si|No)/g;
-										
-										if(reg.test(vaCa)){
-													
+										vaCa=$(pad5).find(":selected").val();
+										if(vaCa != ""){
+									
 											cant.push(true);
+											
 										}else{
 											
 											cant.push(false);
@@ -299,7 +298,7 @@ $(document).ready(function(){
 								data:"protectora="+datosIdent,
 								success:function(resp){
 									
-									window.location.href="../html/iniciarSesion.html";
+									window.location.href="../html/index.html";
 									
 								},
 								error:function(){
@@ -309,7 +308,7 @@ $(document).ready(function(){
 							});
 
 						}else{
-							window.location.href="../html/iniciarSesion.html";
+							window.location.href="../html/index.html";
 						}
 						
 					},

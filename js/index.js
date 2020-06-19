@@ -1,58 +1,430 @@
 $(document).ready(function(){
+
+	let cont=0;
+	let cont1=0;
+	let cont2=0;
+	let dat="";
 	
-	//El primer AJAX muestra la caja que aparece en el lateral derecho del Index con la frase ¡Hola,[variable de sesión obtenida por el php que se pasó en inicioSesionU.js]! y el icono de configuración.
+	//Con los eventos compruebo si los input tienen valor vacío para saltar el mensaje de error o no.
 	
-	$.ajax({
+   $('#nombre').blur(function(){
+
+        if($('#nombre').val() == ""){
+
+            $('#err1').html("No deje el campo vac&iacute;o.");
+            return false;
+        }else{
+
+            $('#err1').html("");
+        }
+    });
+
+    $('#pwd').blur(function(){
+
+        if($('#pwd').val() == ""){
+
+            $('#err2').html("Introduce una contrase&ntilde;a.");
+            return false;
+        }else{
+
+            $('#err2').html("");
+        }
+    });
+
+	/*Dependiendo a qué botón se pulse, cambia el nombre del input (ya que a través del DOM lee el name que tenga el imput nombre, mandándolo a un inicio de sesión u otro)
+	 el nombre del botón registro por lo mismo y el botón de la protectora tiene algo añadido y es que lee el ID de la protectora que se registra para que sea su ID en el
+	 primer inicio de sesión.
+	*/
+	
+	$('#usu').click(function(){
 		
-		url:"../PHP/nombreUsuarioPag2.php",
-		type:'POST',
-		success:function(resp){
+		cont++;
+		
+		if(cont%2!=0){
 			
-			$("#usu").html(resp);
-		},
-		error:function(){
+			$('#fila').removeClass('noV');
+			$('#fila').addClass('siV');
+			$('#nomTit').html("Nombre de usuario");
 			
-			$("#usu").html("No se puede mostrar el nombre del usuario por el momento");
+			$('#nombre').attr('type','text');
+			$('#nombre').attr('name','nombre');
+			
+			$('#reg').attr("name","regis");	
+		}
+		
+		if(cont%2==0){
+			
+			$('#fila').removeClass('siV');
+			$('#fila').addClass('noV');
 		}
 	});
 	
-	//El segundo AJAX hace la consulta y muestra los datos actualizados de la cantidad de animales y protectoras que hay en la plataforma.
-	
-	$.ajax({
+	$('#pro').click(function(){
 		
-		url:"../PHP/datosPag2.php",
-		type:'GET',
-		success:function(resp){
+		cont1++;
+		
+		if(cont1%2!=0){
 			
-			$("#resul").html(resp);
-		},
-		error:function(){
+			$('#fila').removeClass('noV');
+			$('#fila').addClass('siV');
+			$('#nomTit').html("ID de protectora");
 			
-			$("#resul").html("No se puede mostrar los datos por el momento");
+			$('#nombre').attr('type','number');
+			$('#nombre').attr('name','ident');
+			
+			$('#reg').attr("name","regP");
+			
+			$.ajax({
+										
+				type:"POST",
+				url:"../PHP/pasoDatosPag8_1.php",
+				success:function(resp){
+
+					$('#nombre').attr('value',resp);
+				},
+				error:function(){
+					
+					console.log("No funciona");
+				}
+				
+			});
+		}
+		
+		if(cont1%2==0){
+			
+			$('#fila').removeClass('siV');
+			$('#fila').addClass('noV');
+		}
+		
+	});
+
+	$('#ad').click(function(){
+		
+		cont2++;
+		
+		if(cont2%2!=0){
+			
+			$('#fila').removeClass('noV');
+			$('#fila').addClass('siV');
+			$('#nomTit').html('nombre de administrador');
+			
+			$('#nombre').attr('type','text');
+			$('#nombre').attr('name','admin');
+			$('#reg').attr('name','regAdmin');
+			
+		}
+		
+		if(cont2%2==0){
+			
+			$('#fila').removeClass('siV');
+			$('#fila').addClass('noV');
 		}
 	});
 	
-	//Es el botón del PopUp que aparece al pulsar la opción de eliminar la cuenta, te redirige al inicio de sesión eliminando la sesión.
+	//Al darle enter con el teclado hace la misma función que el evento de pulsar click, ya que va buscando a través de DOM el name de nombre y con un switch dirige a un lugar u otro para el inicio de sesión.
 	
-	$('#myModal').on('click','#eliminar',function(){
+	$('#pwd').keypress(function(e){
 		
-		$.ajax({
+		pad=$(this).parent().parent().parent().children();
+		
+		for(hij1 of pad){
 			
-			url:"../PHP/eliminarUsuario.php",
-			type:'POST',
-			success:function(resp){
+			hij2=$(hij1).children();
+			
+			for(hij3 of hij2){
 				
-				location.href="../html/iniciarSesion.html";
-			},
-			error:function(){
-				
-				console.log("Hubo un fallo");
+				if($(hij3).attr('id')=="nom"){
+					
+					hij4=$(hij3).children();
+					
+					for(hij5 of hij4){
+						
+						hij6=$(hij5).attr('name');
+						
+						if(e.key=="Enter"){
+							
+							switch(hij6){
+								
+								case "nombre":
+								
+									da=$('#formul').serialize();
+						
+									$.ajax({
+										
+										type:"POST",
+										url:"../PHP/usuario.php",
+										data:da,
+										success:function(resp){
+											
+											if((resp == "")&&(/^\s*$/.test(resp))){
+												
+												$('#err3').html("El usuario o la contrase&ntilde;a no son correctos.");
+
+											}else{
+												
+												$('#err3').html("");
+												location.href="../PHP/nombreUsuarioPag2.php,../PHP/pasoDatosDeUsuario.php";
+												window.location.href="../html/inicio.html";
+											}
+										},
+										error:function(){
+											
+											console.log("fallo");
+										}
+									});
+									
+								break;
+								
+								case "ident":
+								
+									da=$('#formul').serialize();
+							
+									$.ajax({
+										
+										type:"POST",
+										url:"../PHP/iniciarSesionProtectora.php",
+										data:da,
+										success:function(resp){
+																		
+											if((resp == "")&&(/^\s*$/.test(resp))){
+												
+												$('#err3').html("El identificador o la contrase&ntilde;a no son correctos.");
+
+											}else{
+												
+												$('#err3').html("");
+												
+												location.href="../PHP/datosIdentProtectora.php,../PHP/pasoDatosProtectora.php";
+												window.location.href="../html/inicioProtectora.html";
+											}
+										},
+										error:function(){
+											
+											console.log("fallo");
+										}
+									});
+									
+								break;
+								
+								case "admin":
+								
+									da=$('#formul').serialize();
+					
+									$.ajax({
+											
+										type:"POST",
+										url:"../plantillaAdmin/assets/php/inicioSesionAdmin.php",
+										data:da,
+										success:function(resp){
+											
+											if((resp == "")&&(/^\s*$/.test(resp))){
+
+												$('#err3').html("El usuario o la contrase&ntilde;a no son correctos");
+											}else{
+												
+												$('#err3').html("");
+												location.href="../plantillaAdmin/assets/php/guardarDatosSesionAdmin.php";
+												window.location.href="../plantillaAdmin/examples/inicio.html";
+											}
+										},
+										error:function(){
+											
+											console.log("fallo");
+										}
+									});
+								break;
+							}
+						}
+					}
+				}
 			}
-		})
+		}
+	});
+	
+	$('#iniciar').click(function(){
 		
+		pad=$(this).parent().parent().parent().children();
+		
+		for(hij of pad){
+			
+			if($(hij).attr('id')=="nom"){
+				
+				hij1=$(hij).children();
+				
+				for(hij2 of hij1){
+					
+					nombreInp=$(hij2).attr('name');
+					
+					switch(nombreInp){
+						
+						case "nombre":
+						
+							da=$('#formul').serialize();
+				
+							$.ajax({
+								
+								type:"POST",
+								url:"../PHP/usuario.php",
+								data:da,
+								success:function(resp){
+									
+									if((resp == "")&&(/^\s*$/.test(resp))){
+										
+										$('#err3').html("El usuario o la contrase&ntilde;a no son correctos.");
+
+									}else{
+										
+										$('#err3').html("");
+										location.href="../PHP/nombreUsuarioPag2.php,../PHP/pasoDatosDeUsuario.php";
+										window.location.href="../html/inicio.html";
+									};
+								},
+								error:function(){
+									
+									console.log("fallo");
+								}
+							});
+							
+						break;
+						
+						case "ident":
+						
+							da=$('#formul').serialize();
+					
+							$.ajax({
+								
+								type:"POST",
+								url:"../PHP/iniciarSesionProtectora.php",
+								data:da,
+								success:function(resp){
+																
+									if((resp == "")&&(/^\s*$/.test(resp))){
+										
+										$('#err3').html("El identificador o la contrase&ntilde;a no son correctos.");
+
+									}else{
+										
+										$('#err3').html("");
+										location.href="../PHP/datosIdentProtectora.php,../PHP/pasoDatosProtectora.php";
+										window.location.href="../html/inicioProtectora.html";
+									
+									}
+								},
+								error:function(){
+									
+									console.log("fallo");
+								}
+							});
+						break;
+						
+						case "admin":
+						
+							da=$('#formul').serialize();
+			
+							$.ajax({
+									
+								type:"POST",
+								url:"../plantillaAdmin/assets/php/inicioSesionAdmin.php",
+								data:da,
+								success:function(resp){
+									
+									if((resp == "")&&(/^\s*$/.test(resp))){
+
+										$('#err3').html("El usuario o la contrase&ntilde;a no son correctos");
+									}else{
+										
+										$('#err3').html("");
+										location.href="../plantillaAdmin/assets/php/guardarDatosSesionAdmin.php";
+										window.location.href="../plantillaAdmin/examples/inicio.html";
+									}
+								},
+								error:function(){
+									
+									console.log("fallo");
+								}
+							});
+						break;
+					}
+				}
+			}
+		}
+	});
+	
+	//Al pulsar el botón de registro, éste lee su name y dependiendo de cuál sea,envía por AJAX el nombre de la tabla para después añadirlo en el registro junto con los valores.
+	
+	$('#reg').click(function(){
+		
+		nomReg=$(this).attr('name');
+			
+		switch(nomReg){
+			
+			case "regis":
+			
+				dat="usuario";
+				
+				$.ajax({
+					
+					type:"POST",
+					url:"../PHP/pasoDatosDeUsuario.php",
+					data:"datoT="+dat,
+					success:function(resp){
+						
+						location.href="../PHP/paginaRegistro.php";
+						window.location.href="../html/registro.html";
+				
+					},
+					error:function(){
+						
+						console.log("fallo");
+					}
+				});
+				
+			break;
+			
+			case "regP":
+			
+				dat="protectora";
+		
+				$.ajax({
+					
+					type:"POST",
+					url:"../PHP/pasoDatosDeUsuario.php",
+					data:"datoT="+dat,
+					success:function(resp){
+						
+						location.href="../PHP/paginaRegistro.php";
+						window.location.href="../html/registro.html";
+				
+					},
+					error:function(){
+						
+						console.log("fallo");
+					}
+				});
+				
+			break;
+			
+			case "regAdmin":
+			
+				dat="administradores";
+		
+				$.ajax({
+					
+					type:"POST",
+					url:"../PHP/pasoDatosDeUsuario.php",
+					data:"datoT="+dat,
+					success:function(resp){
+						
+						location.href="../PHP/paginaRegistro.php";
+						window.location.href="../html/registro.html";
+				
+					},
+					error:function(){
+						
+						console.log("fallo");
+					}
+				});
+			break;
+		}
 	});
 });
-
-
-
-

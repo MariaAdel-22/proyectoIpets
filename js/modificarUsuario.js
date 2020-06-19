@@ -109,8 +109,8 @@ $(document).ready(function(){
 						
 						case "TRABAJO":
 						
-							$(hij).html("<input type='text' name='datos["+tabla+"]["+atIcon+"]["+dat+"][]' class='inpD siV' pattern='(SI|NO|Si|No)' title='Introduzca los valores: Si o No.'/>");
-							
+							$(hij).html("<select name='datos["+tabla+"]["+atIcon+"]["+dat+"][]' class='inpD siV' title='Por favor seleccione una de las opciones.' required><option value=''>--Selecciona una opción--</option><option value='Si'>Si</option><option value='No'>No</option></select>");
+						
 						break;
 						
 						case "EMAIL":
@@ -184,6 +184,32 @@ $(document).ready(function(){
 									in10=$(in9).children();
 									
 									for(in11 of in10){
+										
+										if(in11.tagName=="SELECT"){
+											
+											cad=$(in11).attr('name');
+											
+											cad2=cad.split(']');
+											cad3=cad2[1];
+											cad4=cad3.substr(cad3.indexOf('[')+1);
+											
+											if(cad4 == "TRABAJO"){
+												
+												vaCa=$(in11).find(":selected").val();
+													
+												if(vaCa != ""){
+													
+													cant.push(true);
+													
+												}else{
+													
+													cant.push(false);
+													$('#formu').submit(function(){
+														return false;
+													});
+												}
+											}
+										}
 										
 										if(in11.tagName == "INPUT"){
 											
@@ -289,24 +315,6 @@ $(document).ready(function(){
 												
 													vaCa=$(in11).val();
 													reg=/(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))/g;
-													
-													if(reg.test(vaCa)){
-																
-														cant.push(true);
-													}else{
-														
-														cant.push(false);
-														$('#formu').submit(function(){
-															return false;
-														});
-													}
-												
-												break;
-												
-												case "TRABAJO":
-												
-													vaCa=$(in11).val();
-													reg=/(SI|NO|Si|No)/g;
 													
 													if(reg.test(vaCa)){
 																
