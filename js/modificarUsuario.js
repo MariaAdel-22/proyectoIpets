@@ -1,8 +1,5 @@
 $(document).ready(function(){
 	
-	let URLdomain   = window.location.host;
-        let URLprotocol = window.location.protocol;
-	
 	let atIcon="";	
 	
 	//Con el AJAX carga los datos del usuario/protectora.
@@ -429,15 +426,15 @@ $(document).ready(function(){
 				$.ajax({
 								
 					type:"POST",
-					url:URLprotocol+"//"+URLdomain+"/PHP/modificarDatosCuenta.php",
+					url:"../PHP/modificarDatosCuenta.php",
 					data:formu,
 					cache:false,
 					processData:false,
 					contentType:false,
 					success:function(resp){
 						
-						window.history.back();
-
+						//window.history.back();
+						console.log(resp);
 					},
 					error:function(){
 						
