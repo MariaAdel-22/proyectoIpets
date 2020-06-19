@@ -442,7 +442,7 @@ $(document).ready(function(){
 					}
 				});
 				
-				event.preventDefault();
+				//event.preventDefault();
 			}else{
 				
 				$('#formu').submit(function(){
