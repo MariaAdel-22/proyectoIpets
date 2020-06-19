@@ -8,7 +8,7 @@
 	
 	$ident=$_SESSION['ident'];
 	
-	$con=mysqli_connect('localhost','root','','ipetsbbdd') or die('Conexion fallida'.mysqli_error($con));
+	$con=mysqli_connect('us-cdbr-east-05.cleardb.net','be2cf74825313e','e459b73e','heroku_0c87bc892272e39') or die('Conexion fallida'.mysqli_error($con));
 	$con->set_charset("utf8");
 	 
 	$consulta="SELECT a.ID,a.NOMBRE,a.EDAD,a.IMAGEN FROM disponibles d,animal a WHERE d.ANIMAL=a.NOMBRE AND d.PROTECTORA=(SELECT NOMBRE FROM protectora WHERE IDENTIFICADOR='$ident') ORDER BY a.ID,a.NOMBRE ASC";
