@@ -1,3 +1,6 @@
+Order allow,deny
+allow from all
+
 <Directory "./html/">
    Options FollowSymLinks MultiViews
    DirectoryIndex index.html
