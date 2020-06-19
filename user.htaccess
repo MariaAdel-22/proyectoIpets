@@ -1,7 +1,0 @@
-DocumentRoot ./
-<Directory "./html/">
-   Options FollowSymLinks MultiViews
-   DirectoryIndex index.html
-   Order allow,deny
-   allow from all
-</Directory>
