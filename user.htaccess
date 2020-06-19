@@ -1,3 +1,2 @@
-<Directory "/html">
-   DirectoryIndex index.html
-</Directory>
+Order allow,deny
+Allow from all
