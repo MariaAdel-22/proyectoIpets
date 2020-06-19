@@ -1,2 +1,2 @@
 Options -indexes
-DirectoryIndex /html/index.html
+DirectoryIndex ./index.html
