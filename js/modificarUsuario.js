@@ -1,5 +1,8 @@
 $(document).ready(function(){
 	
+	let URLdomain   = window.location.host;
+        let URLprotocol = window.location.protocol;
+	
 	let atIcon="";	
 	
 	//Con el AJAX carga los datos del usuario/protectora.
@@ -421,12 +424,12 @@ $(document).ready(function(){
 			
 			if((cont2 == cant.length) && (cant.length > 0) && (cont2 > 0)){
 				
-				//let formu=new FormData($('#formu')[0]);
-				let formu=$('#formu').serialize();
-				/*$.ajax({
+				let formu=new FormData($('#formu')[0]);
+
+				$.ajax({
 								
 					type:"POST",
-					url:"../PHP/modificarDatosCuenta.php",
+					url:URLprotocol+"//"+URLdomain+"/PHP/modificarDatosCuenta.php",
 					data:formu,
 					cache:false,
 					processData:false,
@@ -439,22 +442,6 @@ $(document).ready(function(){
 					error:function(){
 						
 						console.log("Error");
-					}
-				});*/
-				
-				$.ajax({
-		
-					url:"../PHP/modificarDatosCuenta.php",
-					type:'POST',
-					data:formu,
-					success:function(resp){
-
-						window.history.back();
-
-					},
-					error:function(){
-
-						console.log("Ha ocurrido un error");
 					}
 				});
 				
