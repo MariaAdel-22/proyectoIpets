@@ -421,9 +421,9 @@ $(document).ready(function(){
 			
 			if((cont2 == cant.length) && (cant.length > 0) && (cont2 > 0)){
 				
-				let formu=new FormData($('#formu')[0]);
-			
-				$.ajax({
+				//let formu=new FormData($('#formu')[0]);
+				let formu=$('#formu').serialize();
+				/*$.ajax({
 								
 					type:"POST",
 					url:"../PHP/modificarDatosCuenta.php",
@@ -440,9 +440,25 @@ $(document).ready(function(){
 						
 						console.log("Error");
 					}
+				});*/
+				
+				$.ajax({
+		
+					url:"../PHP/datosDeCuenta.php",
+					type:'POST',
+					data:formu,
+					success:function(resp){
+
+						window.history.back();
+
+					},
+					error:function(){
+
+						console.log("Ha ocurrido un error");
+					}
 				});
 				
-				//event.preventDefault();
+				event.preventDefault();
 			}else{
 				
 				$('#formu').submit(function(){
