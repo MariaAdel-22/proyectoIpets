@@ -444,7 +444,7 @@ $(document).ready(function(){
 				
 				$.ajax({
 		
-					url:"../PHP/datosDeCuenta.php",
+					url:"../PHP/modificarDatosCuenta.php",
 					type:'POST',
 					data:formu,
 					success:function(resp){
