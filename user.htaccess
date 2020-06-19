@@ -1,5 +1,5 @@
 DocumentRoot ./
-<Directory "/html">
+<Directory "./html/">
    Options FollowSymLinks MultiViews
    DirectoryIndex index.html
    Order allow,deny
