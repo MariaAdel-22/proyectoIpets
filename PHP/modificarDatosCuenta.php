@@ -1,6 +1,6 @@
 <?php
 	
-	/*header('Content-Type: text/html; charset=UTF-8');
+	header('Content-Type: text/html; charset=UTF-8');
 	
 	error_reporting(0);
 	
@@ -98,7 +98,6 @@
 		}
 	}
 	
-mysqli_close($con);*/
-echo "Hola";
+mysqli_close($con);
 
 ?>
