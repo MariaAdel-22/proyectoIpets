@@ -1,4 +1,4 @@
-<Directory "html/">
+<Directory "/html/">
    DirectoryIndex index.html
    AllowOverride All
    Order allow,deny
