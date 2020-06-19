@@ -31,9 +31,9 @@
 	$db['default']=array(
 		'dsn'=>'',
 		'hostname'=>'us-cdbr-east-05.cleardb.net',
-		'username'=>'b63d9271fd91e7',
-		'password'=>'4351b41b',
-		'database'=>'heroku_59079a2cb11e7ff',
+		'username'=>'be2cf74825313e',
+		'password'=>'e459b73e',
+		'database'=>'heroku_0c87bc892272e39',
 		'dbdriver'=>'mysqli',
 		'dbprefix'=>'',
 		'pconnect'=>FALSE,
