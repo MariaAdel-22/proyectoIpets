@@ -1,4 +1,4 @@
-<Directory "web/">
+<Directory "./">
    AllowOverride None
    Order allow,deny
    allow from all
