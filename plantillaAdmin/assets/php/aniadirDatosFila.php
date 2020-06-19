@@ -70,7 +70,7 @@
 	$cabecera=implode(",",$ar2);
 	$dat="'".implode("','", $ar1)."'";
 	
-	$con=mysqli_connect('localhost','root','','ipetsbbdd') or die('Conexion fallida'.mysqli_error($con));
+	$con=mysqli_connect('us-cdbr-east-05.cleardb.net','be2cf74825313e','e459b73e','heroku_0c87bc892272e39') or die('Conexion fallida'.mysqli_error($con));
 	$con->set_charset("utf8");
 	
 	$consulta="INSERT INTO $valorTabla ($cabecera) VALUES (".mb_convert_encoding($dat,'UTF-8').")";
