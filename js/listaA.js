@@ -36,8 +36,7 @@ $(document).ready(function(){
 		type:'POST',
 		success:function(resp){
 
-			console.log(resp);
-			/*$('#lista').append(resp);
+			$('#lista').append(resp);
 			
 				$('#lista').ready(function(){
 					
@@ -89,7 +88,7 @@ $(document).ready(function(){
 						}
 					}
 				
-				});*/
+				});
 		},
 		error:function(){
 			
