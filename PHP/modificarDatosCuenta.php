@@ -18,15 +18,15 @@
 	
 	if(mysqli_query($con,$consulta)){
 	
-		$consulta2="SELECT DNI FROM usuario WHERE NOMBRE='$nombreU'";
+		$consulta2="SELECT DNI FROM usuario WHERE NOMBRE='USUARIO'";
 		$res=mysqli_query($con,$consulta2);
 		$fila=mysqli_fetch_assoc($res);
 		
 		while($fila){
 			$nom=$fila['DNI'];
 			while($fila && $nom==$fila['DNI']){
-				echo $nom;
 				$fila=mysqli_fetch_assoc($res);
+				echo $nom;
 			}
 		}
 	}
