@@ -3,7 +3,7 @@
 	header('Content-Type: text/html; charset=UTF-8');
 	
 	session_start();
-	error_reporting(0);
+	error_reporting(E_ALL);
 	
 	require 'conexion.php';
 	$con->set_charset("utf8");
