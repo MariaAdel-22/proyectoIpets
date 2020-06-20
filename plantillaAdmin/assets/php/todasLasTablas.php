@@ -5,7 +5,7 @@
 	require '../../../PHP/conexion.php';
 	$con->set_charset("utf8");
 	
-	$sql= "SHOW TABLES FROM ipetsbbdd WHERE Tables_in_ipetsbbdd<>'adoptados'";
+	$sql= "SHOW TABLES FROM heroku_0c87bc892272e39 WHERE Tables_in_heroku_0c87bc892272e39<>'adoptados'";
 	$resultado = mysqli_query($con,$sql);
 	while ($fila = mysqli_fetch_row($resultado)) {
 		$tab=$fila[0];
