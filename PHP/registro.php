@@ -76,16 +76,16 @@
 	require 'conexion.php';
 	$con->set_charset("utf8");
 
-	$consulta0="INSERT INTO $tabla ($cabecera) VALUES (".$dato.")";
-	mysqli_query($con,$consulta0);
+	/*$consulta0="INSERT INTO $tabla ($cabecera) VALUES (".$dato.")";
+	mysqli_query($con,$consulta0);*/
 	
 	if($tabla == "animal"){
 		
-		/*include 'pasoDatosProtectora.php';
+		include 'pasoDatosProtectora.php';
 		
 		$id=$_SESSION['ident'];
 		
-		$consulta1="SELECT NOMBRE FROM protectora WHERE IDENTIFICADOR='$id'";
+		/*$consulta1="SELECT NOMBRE FROM protectora WHERE IDENTIFICADOR='$id'";
 		$res=mysqli_query($con,$consulta1);
 		$fila=mysqli_fetch_assoc($res);
 		
@@ -104,7 +104,7 @@
 
 			}
 		}*/
-		echo "Paso por aqui";
+		echo "SELECT NOMBRE FROM protectora WHERE IDENTIFICADOR='$id'";
 		
 	}
 	
