@@ -76,12 +76,12 @@
 	require 'conexion.php';
 	$con->set_charset("utf8");
 
-	$consulta0="INSERT INTO $tabla ($cabecera) VALUES (".$dato.")";
-	mysqli_query($con,$consulta0);
+	/*$consulta0="INSERT INTO $tabla ($cabecera) VALUES (".$dato.")";
+	mysqli_query($con,$consulta0);*/
 	
 	if($tabla == "animal"){
 		
-		include 'pasoDatosProtectora.php';
+		/*include 'pasoDatosProtectora.php';
 		
 		$id=$_SESSION['ident'];
 		
@@ -103,7 +103,8 @@
 				mysqli_query($con,$consulta2);
 
 			}
-		}
+		}*/
+		echo "Paso por aqui";
 		
 	}
 	
