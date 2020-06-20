@@ -4,15 +4,15 @@
 	$val1=$_POST['valor1'];
 	$val2=$_POST['valor2'];
 
-	
-	$con=mysqli_connect('us-cdbr-east-05.cleardb.net','be2cf74825313e','e459b73e','heroku_0c87bc892272e39') or die('Conexion fallida'.mysqli_error($con));
+	require '../../../PHP/conexion.php';
+	$con->set_charset("utf8");
 	
 	switch($cont){
 		
 		case ($cont%2!=0):
 			
-				$consulta="SELECT * FROM $val1 ORDER BY $val2 DESC";
-				$res=mysqli_query($con,$consulta) or die('Consulta fallida'.mysqli_error($con));
+				$consulta1="SELECT * FROM $val1 ORDER BY $val2 DESC";
+				$res=mysqli_query($con,$consulta1) or die('Consulta fallida'.mysqli_error($con));
 				
 				switch($val1){
 					
@@ -197,8 +197,8 @@
 		
 		case ($cont%2==0):
 		
-				$consulta="SELECT * FROM $val1 ORDER BY $val2 ASC";
-				$res=mysqli_query($con,$consulta) or die('Consulta fallida'.mysqli_error($con));
+				$consulta2="SELECT * FROM $val1 ORDER BY $val2 ASC";
+				$res=mysqli_query($con,$consulta2) or die('Consulta fallida'.mysqli_error($con));
 				
 				switch($val1){
 					
