@@ -39,9 +39,9 @@
 	$cont=0;
 	$nombeT="";
 	
-	/*$imag=$_FILES["dato"];
+	$imag=$_FILES["dato"];
 	$nombre=$imag["name"];
-	$ruta_prov=$imag["tmp_name"];*/
+	$ruta_prov=$imag["tmp_name"];
 	
 	foreach($dat as $clave => $valor){
 	
