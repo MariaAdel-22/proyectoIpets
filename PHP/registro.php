@@ -99,9 +99,8 @@
 				$animal=$ar1[0];
 				$fila=mysqli_fetch_assoc($res);
 				
-				/*$consulta2="INSERT INTO disponibles (ANIMAL,PROTECTORA) VALUES ('".mb_convert_encoding($animal,'UTF-8')."','".mb_convert_encoding($protec,'UTF-8')."')";
-				mysqli_query($con,$consulta2);*/
-				echo $animal." - ".$protec;
+				$consulta2="INSERT INTO disponibles (ANIMAL,PROTECTORA) VALUES ('".$animal."','".$protec."')";
+				mysqli_query($con,$consulta2);
 
 			}
 		}
