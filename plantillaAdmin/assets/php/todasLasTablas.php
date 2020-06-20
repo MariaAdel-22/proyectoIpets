@@ -2,9 +2,9 @@
 		
 	error_reporting(0);
 	header('Content-Type: text/html; charset=UTF-8');
-	
-	$con=mysqli_connect('us-cdbr-east-05.cleardb.net','be2cf74825313e','e459b73e','heroku_0c87bc892272e39') or die('Conexion fallida'.mysqli_error($con));
+	require '../../../PHP/conexion.php';
 	$con->set_charset("utf8");
+	
 	$sql= "SHOW TABLES FROM ipetsbbdd WHERE Tables_in_ipetsbbdd<>'adoptados'";
 	$resultado = mysqli_query($con,$sql);
 	while ($fila = mysqli_fetch_row($resultado)) {
@@ -101,8 +101,8 @@
 						  
 							 echo "<tbody id='$tab'>";
 								
-								$resul="SHOW COLUMNS FROM $tab";
-								$r=mysqli_query($con,$resul) or die('Consulta fallida'.mysqli_error($con));
+								$resul3="SHOW COLUMNS FROM $tab";
+								$r=mysqli_query($con,$resul3) or die('Consulta fallida'.mysqli_error($con));
 								$fi=mysqli_fetch_assoc($r);
 								
 								echo "<tr>";
@@ -120,8 +120,8 @@
 		
 								echo "</tr>";
 								
-								$resul2="SELECT * FROM $tab";
-								$r2=mysqli_query($con,$resul2) or die('Consulta fallida'.mysqli_error($con));
+								$resul4="SELECT * FROM $tab";
+								$r2=mysqli_query($con,$resul4) or die('Consulta fallida'.mysqli_error($con));
 
 									$result3 = $con->query("SHOW COLUMNS FROM $tab");
 									if ($result3->num_rows > 0) {
@@ -175,8 +175,8 @@
 						  
 							 echo "<tbody id='$tab'>";
 								
-								$resul="SHOW COLUMNS FROM $tab";
-								$r=mysqli_query($con,$resul) or die('Consulta fallida'.mysqli_error($con));
+								$resu5="SHOW COLUMNS FROM $tab";
+								$r=mysqli_query($con,$resu5) or die('Consulta fallida'.mysqli_error($con));
 								$fi=mysqli_fetch_assoc($r);
 								
 								echo "<tr>";
@@ -195,8 +195,8 @@
 		
 								echo "</tr>";
 								
-								$resul2="SELECT * FROM $tab";
-								$r2=mysqli_query($con,$resul2) or die('Consulta fallida'.mysqli_error($con));
+								$resul6="SELECT * FROM $tab";
+								$r2=mysqli_query($con,$resul6) or die('Consulta fallida'.mysqli_error($con));
 
 									$result3 = $con->query("SHOW COLUMNS FROM $tab");
 									if ($result3->num_rows > 0) {
@@ -266,8 +266,8 @@
 						  
 							 echo "<tbody id='$tab'>";
 								
-								$resul="SHOW COLUMNS FROM $tab";
-								$r=mysqli_query($con,$resul) or die('Consulta fallida'.mysqli_error($con));
+								$resul7="SHOW COLUMNS FROM $tab";
+								$r=mysqli_query($con,$resul7) or die('Consulta fallida'.mysqli_error($con));
 								$fi=mysqli_fetch_assoc($r);
 								
 								echo "<tr>";
@@ -283,8 +283,8 @@
 								echo "<th id='edicion' colspan='2'>EDICION</th>";
 								echo "</tr>";
 								
-								$resul2="SELECT * FROM $tab";
-								$r2=mysqli_query($con,$resul2) or die('Consulta fallida'.mysqli_error($con));
+								$resul8="SELECT * FROM $tab";
+								$r2=mysqli_query($con,$resul8) or die('Consulta fallida'.mysqli_error($con));
 
 									$result3 = $con->query("SHOW COLUMNS FROM $tab");
 									if ($result3->num_rows > 0) {
