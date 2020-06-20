@@ -14,7 +14,8 @@
 	
 	$dat=$_POST['datos'];
 
-	$consulta="GRANT SELECT, INSERT, DELETE ON heroku_0c87bc892272e39 TO username@'be2cf74825313e' IDENTIFIED BY 'e459b73e'";
+	//$consulta="GRANT SELECT, INSERT, DELETE ON heroku_0c87bc892272e39 TO username@'be2cf74825313e' IDENTIFIED BY 'e459b73e'";
+	$consulta="GRANT ALL  heroku_0c87bc892272e39 TO username@'be2cf74825313e' IDENTIFIED BY 'e459b73e'";
 	mysqli_query($con,$consulta);
 		
 	/*$consulta2="SELECT DNI FROM usuario";
