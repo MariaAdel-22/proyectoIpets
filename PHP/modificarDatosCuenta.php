@@ -1,7 +1,7 @@
 <?php
 	header('Content-Type: text/html; charset=UTF-8');
 	
-	error_reporting(0);
+	error_reporting(E_ALL);
 	
 	include 'pasoDatosDeUsuario.php';
 	include 'pasoDatosProtectora.php';
