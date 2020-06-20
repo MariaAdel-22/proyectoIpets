@@ -7,12 +7,13 @@
 	$id=$_SESSION['id'];
 	$datos=array();
 		
-	$con=mysqli_connect('us-cdbr-east-05.cleardb.net','be2cf74825313e','e459b73e','heroku_0c87bc892272e39') or die('Conexion fallida'.mysqli_error($con));
+	require 'conexion.php';
+
 	$con->set_charset("utf8");
 
-	$consulta="SELECT ID,NOMBRE,ESPECIE,EDAD,GENERO,RAZA,FECHANACIMIENTO,TIEMPOINYECCION,PESO,IMAGEN FROM animal WHERE ID='$id'";
+	$consulta2="SELECT ID,NOMBRE,ESPECIE,EDAD,GENERO,RAZA,FECHANACIMIENTO,TIEMPOINYECCION,PESO,IMAGEN FROM animal WHERE ID='$id'";
 
-	$res=mysqli_query($con,$consulta)or die('Consulta fallida'.mysqli_error($con));
+	$res=mysqli_query($con,$consulta2)or die('Consulta fallida'.mysqli_error($con));
 
 	while($fila=mysqli_fetch_row($res)){
 		
@@ -22,8 +23,8 @@
 		}
 	}
 	
-	$consulta2="SHOW COLUMNS FROM animal";
-	$res2=mysqli_query($con,$consulta2) or die('Consulta fallida'.mysqli_error($con));
+	$consulta3="SHOW COLUMNS FROM animal";
+	$res2=mysqli_query($con,$consulta3) or die('Consulta fallida'.mysqli_error($con));
 	$fila2=mysqli_fetch_assoc($res2);
 	
 	echo "<div class='row d-flex align-self-center' id='fila'>";
