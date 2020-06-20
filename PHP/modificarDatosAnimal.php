@@ -2,10 +2,10 @@
 	
 	header('Content-Type: text/html; charset=UTF-8');
 	session_start();
-	
-	$con=mysqli_connect('us-cdbr-east-05.cleardb.net','be2cf74825313e','e459b73e','heroku_0c87bc892272e39') or die('Conexion fallida'.mysqli_error($con));
+
+	require 'conexion.php';
 	$con->set_charset("utf8");
-	
+
 	$id=$_SESSION['id'];
 	
 	$dat=$_POST['datos'];
@@ -30,8 +30,8 @@
 					
 					if(!empty($valor4)){
 						
-						$consulta="UPDATE $nombreT SET $clave2='".mb_convert_encoding($valor4,'UTF-8')."' WHERE $clave2='$clave3' AND ID='$id'";
-						mysqli_query($con,$consulta);
+						$consulta1="UPDATE $nombreT SET $clave2='".mb_convert_encoding($valor4,'UTF-8')."' WHERE $clave2='$clave3' AND ID='$id'";
+						mysqli_query($con,$consulta1);
 					}
 						
 				}
@@ -47,8 +47,8 @@
 		
 		move_uploaded_file($ruta_prov,$src);
 		
-		$consulta3="UPDATE animal SET IMAGEN = '".mb_convert_encoding($nombre,'UTF-8')."' WHERE ID='$id'";
-		mysqli_query($con,$consulta3);
+		$consulta2="UPDATE animal SET IMAGEN = '".mb_convert_encoding($nombre,'UTF-8')."' WHERE ID='$id'";
+		mysqli_query($con,$consulta2);
 		
 		echo $src;
 	}
