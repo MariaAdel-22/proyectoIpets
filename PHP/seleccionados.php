@@ -24,7 +24,7 @@
 		while($fila && $dni==$fila['nom_u'] ){
 			
 			$ide=$fila['nom_a'];
-			$consulta2="INSERT into seleccionados (USUARIO,ANIMAL,PROTECTORA) values ('".mb_convert_encoding($dni,'UTF-8')."','".mb_convert_encoding($ide,'UTF-8')."','".mb_convert_encoding($prot,'UTF-8')."')";
+			$consulta2="INSERT into seleccionados (USUARIO,ANIMAL,PROTECTORA) values ('".$dni."','".$ide."','".$prot."')";
 			
 			mysqli_query($con,$consulta2)or die('Segunda consulta fallida'.mysqli_error($con));
 
