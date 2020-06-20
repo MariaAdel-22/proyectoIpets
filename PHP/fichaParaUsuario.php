@@ -5,6 +5,9 @@
 	session_start();
 	error_reporting(0);
 	
+	require 'conexion.php';
+	$con->set_charset("utf8");
+
 	$datoP=$_SESSION['idP'];
 	$dni=$_SESSION['dni'];
 	$id1=$_SESSION['id1'];
@@ -18,12 +21,9 @@
 		
 		$datos=array();
 		
-		$con=mysqli_connect('us-cdbr-east-05.cleardb.net','be2cf74825313e','e459b73e','heroku_0c87bc892272e39') or die('Conexion fallida'.mysqli_error($con));
-		$con->set_charset("utf8");
-		
-		$consulta="SELECT * FROM protectora WHERE IDENTIFICADOR='$datoP'";
+		$consulta1="SELECT * FROM protectora WHERE IDENTIFICADOR='$datoP'";
 
-		$res=mysqli_query($con,$consulta)or die('Consulta fallida'.mysqli_error($con));
+		$res=mysqli_query($con,$consulta1)or die('Consulta fallida'.mysqli_error($con));
 	
 		while($fila=mysqli_fetch_row($res)){
 			
@@ -92,12 +92,9 @@
 		
 		$datos=array();
 		
-		$con=mysqli_connect('us-cdbr-east-05.cleardb.net','be2cf74825313e','e459b73e','heroku_0c87bc892272e39') or die('Conexion fallida'.mysqli_error($con));
-		$con->set_charset("utf8");
-		
-		$consulta="SELECT * FROM animal WHERE ID='$id1'";
+		$consulta3="SELECT * FROM animal WHERE ID='$id1'";
 
-		$res=mysqli_query($con,$consulta)or die('Consulta fallida'.mysqli_error($con));
+		$res=mysqli_query($con,$consulta3)or die('Consulta fallida'.mysqli_error($con));
 	
 		while($fila=mysqli_fetch_row($res)){
 			
@@ -107,8 +104,8 @@
 			}
 		}
 		
-		$consulta2="SHOW COLUMNS FROM animal";
-		$res2=mysqli_query($con,$consulta2) or die('Consulta fallida'.mysqli_error($con));
+		$consulta4="SHOW COLUMNS FROM animal";
+		$res2=mysqli_query($con,$consulta4) or die('Consulta fallida'.mysqli_error($con));
 		$fila2=mysqli_fetch_assoc($res2);
 		
 		echo "<div class='datos col-lg-8 col-md-9 col-sm-10 col-11 mt-lg-3 mb-lg-3 mt-md-3 mb-md-3 mt-sm-3 mb-sm-3 mt-3 mb-3' id='animal'>";
@@ -161,13 +158,10 @@
 		
 		
 		$datos=array();
-		
-		$con=mysqli_connect('us-cdbr-east-05.cleardb.net','be2cf74825313e','e459b73e','heroku_0c87bc892272e39') or die('Conexion fallida'.mysqli_error($con));
-		$con->set_charset("utf8");
-		
-		$consulta="SELECT * FROM usuario WHERE DNI='$dni'";
+	
+		$consulta5="SELECT * FROM usuario WHERE DNI='$dni'";
 
-		$res=mysqli_query($con,$consulta)or die('Consulta fallida'.mysqli_error($con));
+		$res=mysqli_query($con,$consulta5)or die('Consulta fallida'.mysqli_error($con));
 	
 		while($fila=mysqli_fetch_row($res)){
 			
@@ -177,8 +171,8 @@
 			}
 		}
 		
-		$consulta2="SHOW COLUMNS FROM usuario";
-		$res2=mysqli_query($con,$consulta2) or die('Consulta fallida'.mysqli_error($con));
+		$consulta6="SHOW COLUMNS FROM usuario";
+		$res2=mysqli_query($con,$consulta6) or die('Consulta fallida'.mysqli_error($con));
 		$fila2=mysqli_fetch_assoc($res2);
 		
 		echo "<div class='datos col-lg-8 col-md-9 col-sm-10 col-11 mt-lg-3 mb-lg-3 mt-md-3 mb-md-3 mt-sm-3 mb-sm-3 mt-3 mb-3' id='usuario'>";
