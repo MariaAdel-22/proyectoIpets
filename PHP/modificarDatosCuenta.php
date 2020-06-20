@@ -57,11 +57,19 @@
 						
 					if(!empty($valor4)){
 						
-						if($nombreU!=""){
+						if(($nombreU!="")&&($nombreP=="")){
 							
+						  $nombreP="";
 						  $consulta2="UPDATE $nombreT SET $clave2='".$valor4."' WHERE $clave2='$clave3' AND NOMBRE='$nombreU'";
 						  mysqli_query($con,$consulta2);
-						}
+						}else 
+							
+						  if(($nombreP!="")&&($nombreU=="")){
+							  
+						 	 $nombreP="";
+						         $consulta3="UPDATE $nombreT SET $clave2='".$valor4."' WHERE $clave2='$clave3' AND IDENTIFICADOR='$nombreP'";
+						  	mysqli_query($con,$consulta3);  
+						  }
 					}
 					
 				}
