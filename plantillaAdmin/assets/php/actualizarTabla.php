@@ -2,9 +2,9 @@
 	
 	header('Content-Type: text/html; charset=UTF-8');
 	 
-	error_reporting(0);
+	error_reporting(E_ALL);
 	
-	$con=mysqli_connect('us-cdbr-east-05.cleardb.net','be2cf74825313e','e459b73e','heroku_0c87bc892272e39') or die('Conexion fallida'.mysqli_error($con));
+	require '../../../PHP/conexion.php';
 	$con->set_charset("utf8");
 	
 	$datos=$_POST['datos'];
@@ -46,19 +46,17 @@
 
 								if(!empty($valor5)){
 									
-									echo "UPDATE $tabla SET $esp='".mb_convert_encoding($valor5,'UTF-8')."' WHERE $cabecera = '$nomAnt'";
-									
 									if($esp == "CONTRASENIA"){
 							
 										$da=password_hash($valor5, PASSWORD_DEFAULT);
 										
-										$consulta="UPDATE $tabla SET $esp='$da' WHERE $cabecera = '$nomAnt''";
-										mysqli_query($con,$consulta);
+										$consulta1="UPDATE $tabla SET $esp='$da' WHERE $cabecera = '$nomAnt''";
+										mysqli_query($con,$consulta1);
 										
 									}else{
 										
-										$consulta="UPDATE $tabla SET $esp='".mb_convert_encoding($valor5,'UTF-8')."' WHERE $cabecera = '$nomAnt'";
-										mysqli_query($con,$consulta);
+										$consulta2="UPDATE $tabla SET $esp='".mb_convert_encoding($valor5,'UTF-8')."' WHERE $cabecera = '$nomAnt'";
+										mysqli_query($con,$consulta2);
 									}
 									
 									if(isset($imag)){
@@ -76,8 +74,8 @@
 													
 													move_uploaded_file($ruta_prov,$src);
 													
-													$consulta="UPDATE $tabla SET IMAGEN = '".mb_convert_encoding($nombre,'UTF-8')."' WHERE $cabecera = '$nomAnt'";
-													mysqli_query($con,$consulta);
+													$consulta3="UPDATE $tabla SET IMAGEN = '".mb_convert_encoding($nombre,'UTF-8')."' WHERE $cabecera = '$nomAnt'";
+													mysqli_query($con,$consulta3);
 													
 													echo "../../images/PROTECTORAS/".$nombre;
 												}
@@ -94,8 +92,8 @@
 													
 													move_uploaded_file($ruta_prov,$src);
 													
-													$consulta="UPDATE $tabla SET IMAGEN = '".mb_convert_encoding($nombre,'UTF-8')."' WHERE $cabecera = '$nomAnt'";
-													mysqli_query($con,$consulta);
+													$consulta4="UPDATE $tabla SET IMAGEN = '".mb_convert_encoding($nombre,'UTF-8')."' WHERE $cabecera = '$nomAnt'";
+													mysqli_query($con,$consulta4);
 													echo "../../images/".$nombre;
 												}
 												
@@ -123,8 +121,8 @@
 						
 						foreach($va4 as $cla5 => $va5){
 							
-							$consulta="UPDATE $cla SET $cla2='$va5' WHERE $cla4 = '$cla5'";
-							mysqli_query($con,$consulta);
+							$consulta5="UPDATE $cla SET $cla2='$va5' WHERE $cla4 = '$cla5'";
+							mysqli_query($con,$consulta5);
 						}
 					}
 				} 
