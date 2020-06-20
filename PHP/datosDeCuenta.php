@@ -6,13 +6,13 @@
 	
 	include 'pasoDatosDeUsuario.php';
 	include 'pasoDatosProtectora.php';
-	
+	require 'conexion.php';
+
+	$con->set_charset("utf8");
+
 	$nombreU=$_SESSION['nombre'];
 	$nombreP=$_SESSION['ident'];
-	
-	$con=mysqli_connect('us-cdbr-east-05.cleardb.net','be2cf74825313e','e459b73e','heroku_0c87bc892272e39') or die('Conexion fallida'.mysqli_error($con));
-	$con->set_charset("utf8");
-	
+
 	if(isset($nombreU)){
 		
 		if(isset($nombreP)){
@@ -21,9 +21,9 @@
 		}
 		$datos=array();
 				
-		$consulta="SELECT NOMBRE,APELLIDOS,DNI,EDAD,LOCALIDAD,TRABAJO,DIRECCION,CODIGOPOSTAL,EMAIL,CONTRASENIA,IMAGEN FROM usuario WHERE NOMBRE='$nombreU'";
+		$consulta2="SELECT NOMBRE,APELLIDOS,DNI,EDAD,LOCALIDAD,TRABAJO,DIRECCION,CODIGOPOSTAL,EMAIL,CONTRASENIA,IMAGEN FROM usuario WHERE NOMBRE='$nombreU'";
 
-		$res=mysqli_query($con,$consulta)or die('Consulta fallida'.mysqli_error($con));
+		$res=mysqli_query($con,$consulta2)or die('Consulta fallida'.mysqli_error($con));
 	
 		while($fila=mysqli_fetch_row($res)){
 			
@@ -33,8 +33,8 @@
 			}
 		}
 		
-		$consulta2="SHOW COLUMNS FROM usuario";
-		$res2=mysqli_query($con,$consulta2) or die('Consulta fallida'.mysqli_error($con));
+		$consulta3="SHOW COLUMNS FROM usuario";
+		$res2=mysqli_query($con,$consulta3) or die('Consulta fallida'.mysqli_error($con));
 		$fila2=mysqli_fetch_assoc($res2);
 		
 		echo "<div class='row d-flex align-self-center' id='fila'>";
@@ -116,9 +116,9 @@
 		
 		$datos=array();
 				
-		$consulta="SELECT NOMBRE,CONTRASENIA,LOCALIDAD,DIRECCION,IDENTIFICADOR,CONTACTO,IMAGEN FROM protectora WHERE IDENTIFICADOR='$nombreP'";
+		$consulta4="SELECT NOMBRE,CONTRASENIA,LOCALIDAD,DIRECCION,IDENTIFICADOR,CONTACTO,IMAGEN FROM protectora WHERE IDENTIFICADOR='$nombreP'";
 
-		$res=mysqli_query($con,$consulta)or die('Consulta fallida'.mysqli_error($con));
+		$res=mysqli_query($con,$consulta4)or die('Consulta fallida'.mysqli_error($con));
 	
 		while($fila=mysqli_fetch_row($res)){
 			
@@ -132,8 +132,8 @@
 			}
 		}
 	
-		$consulta2="SHOW COLUMNS FROM protectora";
-		$res2=mysqli_query($con,$consulta2) or die('Consulta fallida'.mysqli_error($con));
+		$consulta5="SHOW COLUMNS FROM protectora";
+		$res2=mysqli_query($con,$consulta5) or die('Consulta fallida'.mysqli_error($con));
 		$fila2=mysqli_fetch_assoc($res2);
 		
 		echo "<div class='row d-flex align-self-center' id='fila'>";
