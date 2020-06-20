@@ -433,8 +433,8 @@ $(document).ready(function(){
 					contentType:false,
 					success:function(resp){
 						
-						//window.history.back();
-						console.log(resp);
+						window.history.back();
+						//console.log(resp);
 					},
 					error:function(){
 						
