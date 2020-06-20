@@ -4,17 +4,16 @@
 	
 	error_reporting(0);
 	include 'pasoDatosDeUsuario.php';
-	
+	require 'conexion.php';
+	$con->set_charset("utf8");
+
 	$nombre=$_SESSION['nombre'];
 	$id=$_POST['id1'];
-	
-	$con=mysqli_connect('us-cdbr-east-05.cleardb.net','be2cf74825313e','e459b73e','heroku_0c87bc892272e39') or die('Conexion fallida'.mysqli_error($con));
-	$con->set_charset("utf8");
 	 
-	$consulta="SELECT u.NOMBRE 'nom_u',a.NOMBRE 'nom_a',d.PROTECTORA FROM usuario u,animal a,disponibles d WHERE u.NOMBRE='$nombre' 
+	$consulta1="SELECT u.NOMBRE 'nom_u',a.NOMBRE 'nom_a',d.PROTECTORA FROM usuario u,animal a,disponibles d WHERE u.NOMBRE='$nombre' 
 	AND a.NOMBRE=(SELECT NOMBRE FROM animal WHERE ID='$id') AND a.NOMBRE=d.ANIMAL";
 	
-	$res=mysqli_query($con,$consulta) or die('Consulta fallida'.mysqli_error($con));
+	$res=mysqli_query($con,$consulta1) or die('Consulta fallida'.mysqli_error($con));
 	$fila=mysqli_fetch_assoc($res);
 	
 	while($fila){
