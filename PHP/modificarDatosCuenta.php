@@ -18,7 +18,7 @@
 	$consulta="GRANT ALL heroku_0c87bc892272e39 TO username@'be2cf74825313e' IDENTIFIED BY 'e459b73e'";
 	mysqli_query($con,$consulta);
 		
-	$consulta2="SELECT DNI FROM usuario";
+	/*$consulta2="SELECT DNI FROM usuario";
 	$res=mysqli_query($con,$consulta2);
 	$fila=mysqli_fetch_assoc($res);
 
@@ -28,8 +28,10 @@
 			$fila=mysqli_fetch_assoc($res);
 			echo $nom;
 		}
-	}
-	
+	}*/
+	$consulta2="UPDATE usuario SET DNI='23456789A' WHERE DNI='23456789P'";
+	mysqli_query($con,$consulta2);
+	echo "Paso por aqui";
 	/*$cont=0;
 	$nombeT="";
 	
