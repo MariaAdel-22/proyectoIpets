@@ -73,7 +73,7 @@
 	require '../../../PHP/conexion.php';
 	$con->set_charset("utf8");
 	
-	$consulta1="INSERT INTO $valorTabla ($cabecera) VALUES (".mb_convert_encoding($dat,'UTF-8').")";
+	$consulta1="INSERT INTO $valorTabla ($cabecera) VALUES (".$dat.")";
 
 	mysqli_query($con,$consulta1);
 	
