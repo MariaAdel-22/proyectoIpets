@@ -1,25 +1,25 @@
 <?php
 	
 	error_reporting(0);
-	
+
 	session_start();
 	
+	require 'conexion.php';
+	$con->set_charset("utf8");
+
 	$datoTabla=$_SESSION['datoT'];
 	$_SESSION['dat']=$_POST['dat'];
 	
 	$datoT=$_SESSION['dat'];
-	
-	$con=mysqli_connect('us-cdbr-east-05.cleardb.net','be2cf74825313e','e459b73e','heroku_0c87bc892272e39') or die('Conexion fallida'.mysqli_error($con));
-	
-	
+
 	if(($datoTabla != "")&&($datoT=="")){
 		
 		unset($_SESSION['dat']);
 		$datoT="";
 		
 		
-		$consulta="SHOW COLUMNS FROM $datoTabla";
-		$res=mysqli_query($con,$consulta) or die('Consulta fallida'.mysqli_error($con));
+		$consulta1="SHOW COLUMNS FROM $datoTabla";
+		$res=mysqli_query($con,$consulta1) or die('Consulta fallida'.mysqli_error($con));
 		
 		$fila=mysqli_fetch_assoc($res);
 	
@@ -128,8 +128,8 @@
 		unset($_SESSION['datoT']);
 		$datoTabla="";
 		
-		$consulta="SHOW COLUMNS FROM $datoT";
-		$res=mysqli_query($con,$consulta) or die('Consulta fallida'.mysqli_error($con));
+		$consulta2="SHOW COLUMNS FROM $datoT";
+		$res=mysqli_query($con,$consulta2) or die('Consulta fallida'.mysqli_error($con));
 		
 		$fila=mysqli_fetch_assoc($res);
 	
