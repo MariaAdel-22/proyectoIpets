@@ -14,9 +14,11 @@
 	
 	$dat=$_POST['datos'];
 
-	$consulta="GRANT SELECT, INSERT, DELETE ON heroku_0c87bc892272e39 TO username@'be2cf74825313e' IDENTIFIED BY 'e459b73e'";
+	//$consulta="GRANT SELECT, INSERT, DELETE ON heroku_0c87bc892272e39 TO username@'be2cf74825313e' IDENTIFIED BY 'e459b73e'";
+	$consulta="GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP  ON heroku_0c87bc892272e39.* TO 'be2cf74825313e'@'localhost';
+	mysqli_query($con,$consulta);
 	
-	if(mysqli_query($con,$consulta)){
+	if(FLUSH PRIVILEGES){
 	
 		$consulta2="SELECT DNI FROM usuario WHERE NOMBRE='USUARIO'";
 		$res=mysqli_query($con,$consulta2);
