@@ -30,7 +30,7 @@
 					
 					if(!empty($valor4)){
 						
-						$consulta1="UPDATE $nombreT SET $clave2='".mb_convert_encoding($valor4,'UTF-8')."' WHERE $clave2='$clave3' AND ID='$id'";
+						$consulta1="UPDATE $nombreT SET $clave2='".$valor4."' WHERE $clave2='$clave3' AND ID='$id'";
 						mysqli_query($con,$consulta1);
 					}
 						
@@ -47,7 +47,7 @@
 		
 		move_uploaded_file($ruta_prov,$src);
 		
-		$consulta2="UPDATE animal SET IMAGEN = '".mb_convert_encoding($nombre,'UTF-8')."' WHERE ID='$id'";
+		$consulta2="UPDATE animal SET IMAGEN = '".$nombre."' WHERE ID='$id'";
 		mysqli_query($con,$consulta2);
 		
 		echo $src;
