@@ -434,7 +434,6 @@ $(document).ready(function(){
 					success:function(resp){
 						
 						window.history.back();
-						//console.log(resp);
 					},
 					error:function(){
 						
@@ -475,7 +474,7 @@ $(document).ready(function(){
 						$('#idIm').addClass('siV');
 						$('#idIm').addClass('ima1');
 						$('#idIm').attr('src',src);
-						
+						window.history.back();
 					}
 
 				}
@@ -502,7 +501,7 @@ $(document).ready(function(){
 					src=resp.substr(resp.indexOf("../"));
 					
 					$('#idIm').attr('src',src);
-					
+					window.history.back();
 				}
 			});
 		
