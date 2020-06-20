@@ -73,10 +73,10 @@
 	$cabecera=implode(",",$ar2);
 	$dato="'".implode("','", $ar1)."'";
 	
-	$con=mysqli_connect('us-cdbr-east-05.cleardb.net','be2cf74825313e','e459b73e','heroku_0c87bc892272e39') or die('Conexion fallida'.mysqli_error($con));
+	require 'conexion.php';
 	$con->set_charset("utf8");
 
-	$consulta0="INSERT INTO $tabla ($cabecera) VALUES (". mb_convert_encoding($dato,'UTF-8').")";
+	$consulta0="INSERT INTO $tabla ($cabecera) VALUES (".$dato.")";
 	mysqli_query($con,$consulta0);
 	
 	if($tabla == "animal"){
@@ -85,8 +85,8 @@
 		
 		$id=$_SESSION['ident'];
 		
-		$consulta="SELECT NOMBRE FROM protectora WHERE IDENTIFICADOR='$id'";
-		$res=mysqli_query($con,$consulta);
+		$consulta1="SELECT NOMBRE FROM protectora WHERE IDENTIFICADOR='$id'";
+		$res=mysqli_query($con,$consulta1);
 		$fila=mysqli_fetch_assoc($res);
 		
 		
