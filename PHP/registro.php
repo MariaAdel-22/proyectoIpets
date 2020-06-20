@@ -85,7 +85,7 @@
 		
 		$id=$_SESSION['ident'];
 		
-		/*$consulta1="SELECT NOMBRE FROM protectora WHERE IDENTIFICADOR='$id'";
+		$consulta1="SELECT NOMBRE FROM protectora WHERE IDENTIFICADOR='$id'";
 		$res=mysqli_query($con,$consulta1);
 		$fila=mysqli_fetch_assoc($res);
 		
@@ -99,12 +99,12 @@
 				$animal=$ar1[0];
 				$fila=mysqli_fetch_assoc($res);
 				
-				$consulta2="INSERT INTO disponibles (ANIMAL,PROTECTORA) VALUES ('".mb_convert_encoding($animal,'UTF-8')."','".mb_convert_encoding($protec,'UTF-8')."')";
-				mysqli_query($con,$consulta2);
+				/*$consulta2="INSERT INTO disponibles (ANIMAL,PROTECTORA) VALUES ('".mb_convert_encoding($animal,'UTF-8')."','".mb_convert_encoding($protec,'UTF-8')."')";
+				mysqli_query($con,$consulta2);*/
+				echo $animal." - ".$protec;
 
 			}
-		}*/
-		echo "SELECT NOMBRE FROM protectora WHERE IDENTIFICADOR='$id'";
+		}
 		
 	}
 	
