@@ -29,15 +29,19 @@
 			echo $nom;
 		}
 	}*/
-	$consulta2="UPDATE usuario SET DNI='23456789A' WHERE DNI='23456789P'";
+	/*$consulta2="UPDATE usuario SET DNI='23456789A' WHERE DNI='23456789P'";
 	mysqli_query($con,$consulta2);
-	echo "Paso por aqui";
-	/*$cont=0;
+	echo "Paso por aqui";*/
+
+
+
+
+	$cont=0;
 	$nombeT="";
 	
-	$imag=$_FILES["dato"];
+	/*$imag=$_FILES["dato"];
 	$nombre=$imag["name"];
-	$ruta_prov=$imag["tmp_name"];
+	$ruta_prov=$imag["tmp_name"];*/
 	
 	foreach($dat as $clave => $valor){
 	
@@ -81,7 +85,7 @@
 				}
 			}
 		}
-	}*/
+	}
 	
 	/*if($nombreU!=""){
 		
