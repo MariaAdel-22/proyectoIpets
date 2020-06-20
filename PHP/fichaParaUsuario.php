@@ -14,8 +14,6 @@
 	
 	if($datoP != ""){
 	
-		/*unset($_SESSION['idP']);
-		unset($_SESSION['dni']);*/
 		$id="";
 		$dni="";
 		
@@ -85,8 +83,6 @@
 
 	if($id1 != ""){
 	
-		/*unset($_SESSION['idP']);
-		unset($_SESSION['dni']);*/
 		$datoP="";
 		$dni="";
 		
