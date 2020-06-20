@@ -7,33 +7,12 @@
 	include 'pasoDatosProtectora.php';
 	require 'conexion.php';
 
+	$con->set_charset("utf8");
+
 	$nombreU=$_SESSION['nombre'];
 	$nombreP=$_SESSION['ident'];
 	
-	$con->set_charset("utf8");
-	
 	$dat=$_POST['datos'];
-
-	/*$consulta="GRANT ALL heroku_0c87bc892272e39 TO username@'be2cf74825313e' IDENTIFIED BY 'e459b73e'";
-	mysqli_query($con,$consulta);*/
-		
-	/*$consulta2="SELECT DNI FROM usuario";
-	$res=mysqli_query($con,$consulta2);
-	$fila=mysqli_fetch_assoc($res);
-
-	while($fila){
-		$nom=$fila['DNI'];
-		while($fila && $nom==$fila['DNI']){
-			$fila=mysqli_fetch_assoc($res);
-			echo $nom;
-		}
-	}*/
-	/*$consulta2="UPDATE usuario SET DNI='23456789A' WHERE DNI='23456789P'";
-	mysqli_query($con,$consulta2);
-	echo "Paso por aqui";*/
-
-
-
 
 	$cont=0;
 	$nombeT="";
@@ -46,7 +25,6 @@
 	
 		foreach($valor as $clave2 => $valor2){
 			
-	
 			foreach($valor2 as $clave3 => $valor3){
 				
 				$nombreT=$clave;
@@ -64,7 +42,7 @@
 							
 						  if(($nombreP!="")&&($nombreU=="")){
 							  
-						 	 $nombreP="";
+						 	 $nombreU="";
 						         $consulta3="UPDATE $nombreT SET $clave2='".$valor4."' WHERE $clave2='$clave3' AND IDENTIFICADOR='$nombreP'";
 						  	mysqli_query($con,$consulta3);  
 						  }
@@ -75,7 +53,38 @@
 		}
 	}
 	
-	
+if($nombreU!=""){
+		
+	if(isset($imag)){
+
+		$carpeta="../images/";
+
+		$src=$carpeta.$nombre;
+
+		move_uploaded_file($ruta_prov,$src);
+
+		$consulta4="UPDATE usuario SET IMAGEN = '".$nombre."' WHERE NOMBRE='$nombreU'";
+		mysqli_query($con,$consulta4);
+		echo $src;
+	}
+}
+
+if($nombreP!=""){
+
+	if(isset($imag)){
+
+		$carpeta="../images/PROTECTORAS/";
+
+		$src=$carpeta.$nombre;
+
+		move_uploaded_file($ruta_prov,$src);
+
+		$consulta5="UPDATE protectora SET IMAGEN = '".$nombre."' WHERE IDENTIFICADOR='$nombreP'";
+		mysqli_query($con,$consulta5);
+		echo $src;
+	}
+}
+
 mysqli_close($con);
 
 ?>
