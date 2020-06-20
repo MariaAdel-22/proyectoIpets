@@ -1,5 +1,4 @@
 <?php
-	
 	header('Content-Type: text/html; charset=UTF-8');
 	
 	//error_reporting(0);
@@ -15,11 +14,15 @@
 	
 	$dat=$_POST['datos'];
 
-	$consulta "SELECT NOMBRE FROM usuario WHERE NOMBRE='$nombreU'";
-	$res=mysqli_query($con,$consulta);
-	$fila=mysqli_fetch_array($res);
-	echo $fila[0];
-
+	$consulta="GRANT SELECT, INSERT, DELETE ON heroku_0c87bc892272e39 TO username@'be2cf74825313e' IDENTIFIED BY 'e459b73e'";
+	
+	if(mysqli_query($con,$consulta)){
+	
+		$consulta2="SELECT DNI FROM usuario WHERE NOMBRE='$nombreU'";
+		$res=mysqli_query($con,$consulta2);
+		$fila=mysqli_fetch_array($res);
+		echo $fila[0];
+	}
 	/*$cont=0;
 	$nombeT="";
 	
@@ -100,8 +103,8 @@
 			mysqli_query($con,$consulta3);
 			echo $src;
 		}
-	}
+	}*/
 	
-mysqli_close($con);*/
+mysqli_close($con);
 
 ?>
