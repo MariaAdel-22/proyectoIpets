@@ -15,7 +15,7 @@
 	$dat=$_POST['datos'];
 
 	//$consulta="GRANT SELECT, INSERT, DELETE ON heroku_0c87bc892272e39 TO username@'be2cf74825313e' IDENTIFIED BY 'e459b73e'";
-	$consulta="GRANT ALL  heroku_0c87bc892272e39 TO username@'be2cf74825313e' IDENTIFIED BY 'e459b73e'";
+	$consulta="GRANT ALL heroku_0c87bc892272e39 TO username@'be2cf74825313e' IDENTIFIED BY 'e459b73e'";
 	mysqli_query($con,$consulta);
 		
 	/*$consulta2="SELECT DNI FROM usuario";
@@ -48,19 +48,19 @@
 				
 				foreach($valor3 as $clave4 => $valor4){
 						
-					if($nombreU!=""){
+					/*if($nombreU!=""){
 						
 						$nombreP="";
 						
 						if(!empty($valor4)){
 							
 							$cont++;
-							/*$consulta2="UPDATE $nombreT SET $clave2='".mb_convert_encoding($valor4,'UTF-8')."' WHERE $clave2='$clave3' AND NOMBRE='$nombreU'";
-							mysqli_query($con,$consulta2);*/
-							echo "UPDATE $nombreT SET $clave2='".mb_convert_encoding($valor4,'UTF-8')."' WHERE $clave2='$clave3' AND NOMBRE='$nombreU'";
+							$consulta2="UPDATE $nombreT SET $clave2='".mb_convert_encoding($valor4,'UTF-8')."' WHERE $clave2='$clave3' AND NOMBRE='$nombreU'";
+							mysqli_query($con,$consulta2);
 						}
 						
-					}
+					}*/
+					echo "UPDATE $nombreT SET $clave2='".mb_convert_encoding($valor4,'UTF-8')."' WHERE $clave2='$clave3' AND NOMBRE='$nombreU'";
 					
 					/*if($nombreP!=""){
 						
