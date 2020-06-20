@@ -61,12 +61,12 @@
 						if(!empty($valor4)){
 							
 							$cont++;
-							$consulta2="UPDATE $nombreT SET $clave2='".mb_convert_encoding($valor4,'UTF-8')."' WHERE $clave2='$clave3' AND NOMBRE='$nombreU'";
-							mysqli_query($con,$consulta2);
+							/*$consulta2="UPDATE $nombreT SET $clave2='".mb_convert_encoding($valor4,'UTF-8')."' WHERE $clave2='$clave3' AND NOMBRE='$nombreU'";
+							mysqli_query($con,$consulta2);*/
+							echo "UPDATE $nombreT SET $clave2='".mb_convert_encoding($valor4,'UTF-8')."' WHERE $clave2='$clave3' AND NOMBRE='$nombreU'";
 						}
 						
 					}
-					echo "UPDATE $nombreT SET $clave2='".mb_convert_encoding($valor4,'UTF-8')."' WHERE $clave2='$clave3' AND NOMBRE='$nombreU'";
 					
 					if($nombreP!=""){
 						
