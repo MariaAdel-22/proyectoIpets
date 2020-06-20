@@ -55,7 +55,7 @@
 										
 									}else{
 										
-										$consulta2="UPDATE $tabla SET $esp='".mb_convert_encoding($valor5,'UTF-8')."' WHERE $cabecera = '$nomAnt'";
+										$consulta2="UPDATE $tabla SET $esp='".$valor5."' WHERE $cabecera = '$nomAnt'";
 										mysqli_query($con,$consulta2);
 									}
 									
@@ -74,7 +74,7 @@
 													
 													move_uploaded_file($ruta_prov,$src);
 													
-													$consulta3="UPDATE $tabla SET IMAGEN = '".mb_convert_encoding($nombre,'UTF-8')."' WHERE $cabecera = '$nomAnt'";
+													$consulta3="UPDATE $tabla SET IMAGEN = '".$nombre."' WHERE $cabecera = '$nomAnt'";
 													mysqli_query($con,$consulta3);
 													
 													echo "../../images/PROTECTORAS/".$nombre;
@@ -92,7 +92,7 @@
 													
 													move_uploaded_file($ruta_prov,$src);
 													
-													$consulta4="UPDATE $tabla SET IMAGEN = '".mb_convert_encoding($nombre,'UTF-8')."' WHERE $cabecera = '$nomAnt'";
+													$consulta4="UPDATE $tabla SET IMAGEN = '".$nombre."' WHERE $cabecera = '$nomAnt'";
 													mysqli_query($con,$consulta4);
 													echo "../../images/".$nombre;
 												}
