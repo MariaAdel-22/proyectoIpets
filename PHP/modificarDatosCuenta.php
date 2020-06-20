@@ -54,70 +54,15 @@
 				
 				foreach($valor3 as $clave4 => $valor4){
 						
-					if($nombreU!=""){
-						
-						$nombreP="";
-						
-						if(!empty($valor4)){
-							
-							$cont++;
-							/*$consulta2="UPDATE $nombreT SET $clave2='".mb_convert_encoding($valor4,'UTF-8')."' WHERE $clave2='$clave3' AND NOMBRE='$nombreU'";
-							mysqli_query($con,$consulta2);*/
-							echo "UPDATE $nombreT SET $clave2='".mb_convert_encoding($valor4,'UTF-8')."' WHERE $clave2='$clave3' AND NOMBRE='$nombreU'";
-						}
-						
+					if(!empty($valor4)){
+						echo "UPDATE $nombreT SET $clave2='".$valor4."' WHERE $clave2='$clave3' AND NOMBRE='$nombreU'";
 					}
 					
-					if($nombreP!=""){
-						
-						$nombreU="";
-						
-						if(!empty($valor4)){
-							
-							$cont++;
-							
-							$consulta2="UPDATE $nombreT SET $clave2='".mb_convert_encoding($valor4,'UTF-8')."' WHERE $clave2='$clave3' AND IDENTIFICADOR='$nombreP'";
-							mysqli_query($con,$consulta2);
-
-						}
-
-					}
 				}
 			}
 		}
 	}
 	
-	/*if($nombreU!=""){
-		
-		if(isset($imag)){
-							
-			$carpeta="../images/";
-
-			$src=$carpeta.$nombre;
-			
-			move_uploaded_file($ruta_prov,$src);
-			
-			$consulta3="UPDATE usuario SET IMAGEN = '".mb_convert_encoding($nombre,'UTF-8')."' WHERE NOMBRE='$nombreU'";
-			mysqli_query($con,$consulta3);
-			echo $src;
-		}
-	}
-	
-	if($nombreP!=""){
-		
-		if(isset($imag)){
-							
-			$carpeta="../images/PROTECTORAS/";
-
-			$src=$carpeta.$nombre;
-			
-			move_uploaded_file($ruta_prov,$src);
-			
-			$consulta3="UPDATE protectora SET IMAGEN = '".mb_convert_encoding($nombre,'UTF-8')."' WHERE IDENTIFICADOR='$nombreP'";
-			mysqli_query($con,$consulta3);
-			echo $src;
-		}
-	}*/
 	
 mysqli_close($con);
 
