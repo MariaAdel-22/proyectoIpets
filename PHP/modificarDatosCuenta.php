@@ -16,20 +16,20 @@
 
 	$consulta="GRANT SELECT, INSERT, DELETE ON heroku_0c87bc892272e39 TO username@'be2cf74825313e' IDENTIFIED BY 'e459b73e'";
 	//$consulta="GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP  ON heroku_0c87bc892272e39.* TO 'be2cf74825313e'@'us-cdbr-east-05.cleardb.net';
-	if(mysqli_query($con,$consulta)){
+	mysqli_query($con,$consulta);
 		
-		$consulta2="SELECT DNI FROM usuario";
-		$res=mysqli_query($con,$consulta2);
-		$fila=mysqli_fetch_assoc($res);
-		
-		while($fila){
-			$nom=$fila['DNI'];
-			while($fila && $nom==$fila['DNI']){
-				$fila=mysqli_fetch_assoc($res);
-				echo $nom;
-			}
+	$consulta2="SELECT DNI FROM usuario";
+	$res=mysqli_query($con,$consulta2);
+	$fila=mysqli_fetch_assoc($res);
+
+	while($fila){
+		$nom=$fila['DNI'];
+		while($fila && $nom==$fila['DNI']){
+			$fila=mysqli_fetch_assoc($res);
+			echo $nom;
 		}
 	}
+	
 	
 mysqli_close($con);
 
