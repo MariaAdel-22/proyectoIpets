@@ -59,7 +59,8 @@
 						
 						if($nombreU!=""){
 							
-							echo "UPDATE $nombreT SET $clave2='".$valor4."' WHERE $clave2='$clave3' AND NOMBRE='$nombreU'";
+						  $consulta2="UPDATE $nombreT SET $clave2='".$valor4."' WHERE $clave2='$clave3' AND NOMBRE='$nombreU'";
+						  mysqli_query($con,$consulta2);
 						}
 					}
 					
