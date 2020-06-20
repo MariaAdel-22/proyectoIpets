@@ -29,7 +29,7 @@
 		while($fila && $dni==$fila['DNI'] ){
 			
 			$ide=$fila['ID'];
-			$consulta3="INSERT into adoptados (USUARIO,ANIMAL,PROTECTORA,HORA) values ('".mb_convert_encoding($dni,'UTF-8')."','".mb_convert_encoding($ide,'UTF-8')."','".mb_convert_encoding($prot,'UTF-8')."','".mb_convert_encoding($fecha,'UTF-8')."')";
+			$consulta3="INSERT into adoptados (USUARIO,ANIMAL,PROTECTORA,HORA) values ('".$dni."','".$ide."','".$prot."','".$fecha."')";
 			
 			mysqli_query($con,$consulta3)or die('Segunda consulta fallida'.mysqli_error($con));
 				
