@@ -17,7 +17,7 @@
 			if(!empty($valor1)){
 				
 
-				$consulta1="UPDATE administradores SET $clave='".mb_convert_encoding($valor1,'UTF-8')."' WHERE NOMBRE='$nombre'";
+				$consulta1="UPDATE administradores SET $clave='".$valor1."' WHERE NOMBRE='$nombre'";
 				mysqli_query($con,$consulta1);
 			}
 
