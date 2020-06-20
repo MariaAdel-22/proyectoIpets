@@ -55,7 +55,11 @@
 				foreach($valor3 as $clave4 => $valor4){
 						
 					if(!empty($valor4)){
-						echo "UPDATE $nombreT SET $clave2='".$valor4."' WHERE $clave2='$clave3' AND NOMBRE='$nombreU'";
+						
+						if($nombreU!=""){
+							
+							echo "UPDATE $nombreT SET $clave2='".$valor4."' WHERE $clave2='$clave3' AND NOMBRE='$nombreU'";
+						}
 					}
 					
 				}
