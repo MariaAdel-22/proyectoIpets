@@ -160,7 +160,8 @@ $(document).ready(function(){
 				data:"id1="+ide,
 				success:function(resp){
 					
-					console.log("Se ha añadido");
+					//console.log("Se ha añadido");
+					console.log(resp);
 					crearG(ide,1,"1");
 	
 				},
