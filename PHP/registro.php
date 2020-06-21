@@ -84,27 +84,6 @@
 		include 'pasoDatosProtectora.php';
 		
 		$id=$_SESSION['ident'];
-		
-		/*$consulta1="SELECT NOMBRE FROM protectora WHERE IDENTIFICADOR='$id'";
-		$res=mysqli_query($con,$consulta1);
-		$fila=mysqli_fetch_assoc($res);
-		
-		
-		while($fila){
-			
-			$protec=$fila['NOMBRE'];
-			
-			while($fila && $protec == $fila['NOMBRE']){
-				
-				$animal=$ar1[0];
-				$fila=mysqli_fetch_assoc($res);
-				
-				$consulta2="INSERT INTO disponibles (ANIMAL,PROTECTORA) VALUES ('".$animal."','".$protec."')";
-				mysqli_query($con,$consulta2);
-
-			}
-		}*/
-		
 		$animal=$ar1[0];
 		
 		$consulta1="SELECT p.NOMBRE,a.ID FROM protectora p,animal a WHERE p.IDENTIFICADOR='$id' AND a.NOMBRE='$animal'";
