@@ -173,8 +173,7 @@ $(document).ready(function(){
 					  "tabla":tablaN},
 				success:function(resp){
 
-					//location.reload();
-					console.log(resp);
+					location.reload();
 				},
 				error:function(){
 					
