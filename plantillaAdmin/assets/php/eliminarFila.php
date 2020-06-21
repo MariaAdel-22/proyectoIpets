@@ -30,9 +30,9 @@
 			$consulta4="DELETE d1,d2 FROM disponibles d1, animal d2 WHERE d1.PROTECTORA='$dat' and d2.NOMBRE=d1.ANIMAL";
 			$consult5="DELETE FROM $tab WHERE $cab='$dat'";
 			
-			$result=mysqli_query($con,$consulta5) or die('Consulta fallida'.mysqli_error($con));
 			$result=mysqli_query($con,$consulta3) or die('Consulta fallida'.mysqli_error($con));
-			$result=mysqli_query($con,$consulta4) or die('Consulta fallida'.mysqli_error($con));*/
+			$result=mysqli_query($con,$consulta4) or die('Consulta fallida'.mysqli_error($con));
+			$result=mysqli_query($con,$consulta5) or die('Consulta fallida'.mysqli_error($con));
 	
 		break;
 		
