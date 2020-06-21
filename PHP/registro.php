@@ -85,7 +85,7 @@
 		
 		$id=$_SESSION['ident'];
 		
-		$consulta1="SELECT NOMBRE FROM protectora WHERE IDENTIFICADOR='$id'";
+		/*$consulta1="SELECT NOMBRE FROM protectora WHERE IDENTIFICADOR='$id'";
 		$res=mysqli_query($con,$consulta1);
 		$fila=mysqli_fetch_assoc($res);
 		
@@ -103,8 +103,31 @@
 				mysqli_query($con,$consulta2);
 
 			}
-		}
+		}*/
 		
+		$animal=$ar1[0];
+		
+		$consulta1="SELECT p.NOMBRE,a.ID FROM protectora p,animal a WHERE p.IDENTIFICADOR='$id' AND a.NOMBRE='$animal'";
+		$res=mysqli_query($con,$consulta1);
+		$fila=mysqli_fetch_assoc($res);
+		
+		while($fila){
+			
+			$nom=$fila['NOMBRE'];
+			
+			while($fila && $nom==$fila['NOMBRE']){
+				
+				$ide=$fila['ID'];
+				
+				while($fila && $nom==$fila['NOMBRE'] && $ide==$fila['ID']){
+					
+					$fila=mysqli_fetch_assoc($res);
+					
+					$consulta2="INSERT INTO disponibles (ID,ANIMAL,IDENTIFICADOR,PROTECTORA) VALUES ('".$ide."','".$animal."','".$id."','".$nom."')";
+					mysqli_query($con,$consulta2);
+				}
+			}
+		}
 	}
 	
 	mysqli_close($con);
