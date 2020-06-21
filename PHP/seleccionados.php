@@ -50,7 +50,7 @@
 				
 				while($fila && $dni==$fila['DNI'] && $ide==$fila['ID'] && $ident==$fila['IDENTIFICADOR']){
 					
-				$consulta2="INSERT into seleccionados (ID,ANIMAL,DNI,USUARIO,IDENTIFICADOR,PROTECTORA) values ('".$nom."','".$dni."','".$nom2."','".$ide."','".$nom3."','".$ident."')";
+				$consulta2="INSERT into seleccionados (ID,ANIMAL,DNI,USUARIO,IDENTIFICADOR,PROTECTORA) values ('".$ide."','".$nom2."','".$dni."','".$nom."','".$ident."','".$nom3."')";
 					mysqli_query($con,$consulta2)or die('Segunda consulta fallida'.mysqli_error($con));
 					
 					//echo "INSERT into seleccionados (ID,ANIMAL,DNI,USUARIO,IDENTIFICADOR,PROTECTORA) values ('".$nom."','".$dni."','".$nom2."','".$ide."','".$nom3."','".$ident."')";
