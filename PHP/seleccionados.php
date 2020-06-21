@@ -16,23 +16,6 @@
 	$res=mysqli_query($con,$consulta1) or die('Consulta fallida'.mysqli_error($con));
 	$fila=mysqli_fetch_assoc($res);
 	
-	/*while($fila){
-		
-		$dni=$fila['nom_u'];
-		$prot=$fila['PROTECTORA'];
-
-		while($fila && $dni==$fila['nom_u'] ){
-			
-			$ide=$fila['nom_a'];
-			$consulta2="INSERT into seleccionados (USUARIO,ANIMAL,PROTECTORA) values ('".$dni."','".$ide."','".$prot."')";
-			
-			mysqli_query($con,$consulta2)or die('Segunda consulta fallida'.mysqli_error($con));
-
-			$fila=mysqli_fetch_assoc($res);
-		}
-		
-	}*/
-
 	while($fila){
 		
 		$nom=$fila['nom_u'];
@@ -50,10 +33,9 @@
 				
 				while($fila && $dni==$fila['DNI'] && $ide==$fila['ID'] && $ident==$fila['IDENTIFICADOR']){
 					
-				$consulta2="INSERT into seleccionados (ID,ANIMAL,DNI,USUARIO,IDENTIFICADOR,PROTECTORA) values ('".$ide."','".$nom2."','".$dni."','".$nom."','".$ident."','".$nom3."')";
+					$consulta2="INSERT into seleccionados (ID,ANIMAL,DNI,USUARIO,IDENTIFICADOR,PROTECTORA) values ('".$ide."','".$nom2."','".$dni."','".$nom."','".$ident."','".$nom3."')";
 					mysqli_query($con,$consulta2)or die('Segunda consulta fallida'.mysqli_error($con));
-					
-					//echo "INSERT into seleccionados (ID,ANIMAL,DNI,USUARIO,IDENTIFICADOR,PROTECTORA) values ('".$nom."','".$dni."','".$nom2."','".$ide."','".$nom3."','".$ident."')";
+				
 					$fila=mysqli_fetch_assoc($res);
 				}
 			}
