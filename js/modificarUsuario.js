@@ -474,7 +474,7 @@ $(document).ready(function(){
 						$('#idIm').addClass('siV');
 						$('#idIm').addClass('ima1');
 						$('#idIm').attr('src',src);
-						window.history.back();
+						//window.history.back();
 					}
 
 				}
@@ -501,7 +501,7 @@ $(document).ready(function(){
 					src=resp.substr(resp.indexOf("../"));
 					
 					$('#idIm').attr('src',src);
-					window.history.back();
+					//window.history.back();
 				}
 			});
 		
