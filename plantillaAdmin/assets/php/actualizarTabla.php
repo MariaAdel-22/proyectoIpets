@@ -101,7 +101,7 @@
 										}
 									}*/
 									
-									if(isset($imag)){
+									if($nombre!=""){
 		
 										if(substr_compare($nombre, "PROTECTORA", 0, 10)){
 
