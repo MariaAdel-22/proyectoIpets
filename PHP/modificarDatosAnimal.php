@@ -39,7 +39,7 @@
 		}
 	}
 	
-	if(isset($imag)){
+	if($imag!=""){
 							
 		$carpeta="../images/";
 
