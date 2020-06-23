@@ -39,20 +39,6 @@
 		}
 	}
 	
-	/*if($imag!=""){
-							
-		$carpeta="../images/";
-
-		$src=$carpeta.$nombre;
-		
-		move_uploaded_file($ruta_prov,$src);
-		
-		$consulta2="UPDATE animal SET IMAGEN = '".$nombre."' WHERE ID='$id'";
-		mysqli_query($con,$consulta2);
-		
-		echo $src;
-	}*/
-	
 	if($nombre!=""){
 							
 		$carpeta="../images/";
