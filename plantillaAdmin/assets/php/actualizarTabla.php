@@ -59,7 +59,7 @@
 										mysqli_query($con,$consulta2);
 									}
 									
-									/*if(isset($imag)){
+									if(isset($imag)){
 						
 										$info = new SplFileInfo($nombre);
 										switch (substr_compare($nombre, "PROTECTORA", 0, 9)){
@@ -99,9 +99,9 @@
 												
 											break;
 										}
-									}*/
+									}
 									
-									if($nombre!=""){
+									/*if($nombre!=""){
 		
 										if(substr_compare($nombre, "PROTECTORA", 0, 10)){
 
@@ -130,7 +130,7 @@
 
 										}
 
-									}
+									}*/
 								}
 								
 							}
