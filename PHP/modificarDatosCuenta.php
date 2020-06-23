@@ -55,7 +55,7 @@
 	
 if($nombreU!=""){
 		
-	if(isset($imag)){
+	if($nombre!=""){
 
 		$carpeta="../images/";
 
@@ -71,7 +71,7 @@ if($nombreU!=""){
 
 if($nombreP!=""){
 
-	if(isset($imag)){
+	if($nombre!=""){
 
 		$carpeta="../images/PROTECTORAS/";
 
