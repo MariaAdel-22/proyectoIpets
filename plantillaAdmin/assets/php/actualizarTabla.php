@@ -59,7 +59,7 @@
 										mysqli_query($con,$consulta2);
 									}
 									
-									if(isset($imag)){
+									/*if(isset($imag)){
 						
 										$info = new SplFileInfo($nombre);
 										switch (substr_compare($nombre, "PROTECTORA", 0, 9)){
@@ -99,6 +99,37 @@
 												
 											break;
 										}
+									}*/
+									
+									if(isset($imag)){
+		
+										if(substr_compare($nombre, "PROTECTORA", 0, 10)){
+
+											$carpeta="../../../images/";
+											$src=$carpeta.$nombre;
+
+											move_uploaded_file($ruta_prov,$src);
+
+											$consulta="UPDATE $tabla SET IMAGEN = '".$nombre."' WHERE $cabecera = '$nomAnt'";
+											mysqli_query($con,$consulta);
+											echo "../../images/".$nombre;
+
+										}else{
+
+											$carpeta="../../../images/PROTECTORAS/";
+
+											$src=$carpeta.$nombre;
+
+											move_uploaded_file($ruta_prov,$src);
+
+											$consulta="UPDATE $tabla SET IMAGEN = '".$nombre."' WHERE $cabecera = '$nomAnt'";
+											mysqli_query($con,$consulta);
+
+											echo "../images/PROTECTORAS/".$nombre;
+
+
+										}
+
 									}
 								}
 								
