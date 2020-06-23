@@ -63,9 +63,9 @@ if($nombreU!=""){
 
 		move_uploaded_file($ruta_prov,$src);
 
-		/*$consulta4="UPDATE usuario SET IMAGEN = '".$nombre."' WHERE NOMBRE='$nombreU'";
+		$consulta4="UPDATE usuario SET IMAGEN = '".$nombre."' WHERE NOMBRE='$nombreU'";
 		mysqli_query($con,$consulta4);
-		echo $src;*/
+		echo $src;
 	}
 }
 
